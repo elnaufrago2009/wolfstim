@@ -36,6 +36,110 @@
 
 
 
+			<!-- Titulo -->
+			<h3 class="bd-title pb-4">Nuevo Producto</h3>
+
+
+
+
+			<!-- Formulario
+			**************************************-->
+			<form v-on:submit.prevent>
+
+
+
+
+        <!-- Descripcion -->
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Descripcion</label>
+          <div class="col-sm-6">
+            <input 
+            	type="text" 
+            	class="form-control"             	
+            	v-model="pack.descripcion" 
+            	placeholder="Leche grande 600ML sin grasa">
+          </div>
+        </div>
+
+
+
+
+
+        <!-- Cantidad1 -->
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Cantidad</label>
+          <div class="col-sm-2">
+            <input 
+            	type="number" 
+            	class="form-control"             	
+            	v-model="pack.descripcion" 
+            	placeholder="5">
+          </div>
+        </div>
+
+
+
+
+        <!-- precio -->
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Precio</label>
+          <div class="col-sm-2">
+            <input 
+            	type="number"
+            	class="form-control"             	
+            	v-model="pack.costo" 
+            	placeholder="15.56">
+          </div>
+        </div>
+
+
+
+        <!-- Activo -->
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Activo</label>
+          <div class="col-sm-3">
+          	<select class="form-control" v-model="pack.activo">
+				      <option value="1">Activo</option>
+				      <option value="0">No Activo</option>				      
+				    </select>            
+          </div>
+        </div>
+
+
+
+        <!-- Imagen -->
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Imagen</label>
+          <div class="col-sm-7">
+            <input 
+            	type="text"
+            	class="form-control"             	
+            	v-model="pack.imagen" 
+            	placeholder="imagen.jpg">
+          </div>
+        </div>
+
+
+
+        <!-- Sumbit -->        
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label"></label>
+          <div class="col-sm-2">
+            <button 
+            	type="submit" 
+            	class="btn btn-primary form-control"  
+            	v-on:click="enviar(pack)">
+            	Crear Pack
+          	</button>
+          </div>
+        </div>
+
+
+
+
+			</form>
+
+
 
 		</main>
 

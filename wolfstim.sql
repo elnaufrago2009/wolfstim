@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2018 a las 03:36:34
+-- Tiempo de generación: 18-07-2018 a las 01:26:34
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -21,6 +21,53 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `wolfstim`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_packs`
+--
+
+CREATE TABLE `detalle_packs` (
+  `id` int(5) NOT NULL,
+  `descripcion` varchar(300) NOT NULL,
+  `cantidad` int(6) NOT NULL,
+  `precio` decimal(6,2) NOT NULL,
+  `created` date NOT NULL,
+  `updated` date NOT NULL,
+  `id_pack` int(5) NOT NULL,
+  `activo` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `packs`
+--
+
+CREATE TABLE `packs` (
+  `id` int(3) NOT NULL,
+  `codigo` varchar(20) NOT NULL,
+  `descripcion` varchar(300) NOT NULL,
+  `costo` decimal(6,2) NOT NULL,
+  `created` date NOT NULL,
+  `updated` date NOT NULL,
+  `activo` int(1) NOT NULL,
+  `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user_pack`
+--
+
+CREATE TABLE `user_pack` (
+  `pack_id` int(2) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created` date NOT NULL,
+  `updated` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -56,14 +103,27 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`) VALUES
-(1, '', 'dsad', '', 0, '', '', 0, '', 0, '', '', '', 0, 0, 0, 0, 0, 0, 0),
-(2, NULL, 'd', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
-(3, NULL, 'ddsd', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
-(4, NULL, 'dsadad', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0);
+(28, NULL, 'a', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
+(29, 'd', 'd', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
+(30, 'd', 'd', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'correo@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0),
+(32, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'correo@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `detalle_packs`
+--
+ALTER TABLE `detalle_packs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `packs`
+--
+ALTER TABLE `packs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -76,10 +136,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `detalle_packs`
+--
+ALTER TABLE `detalle_packs`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `packs`
+--
+ALTER TABLE `packs`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
