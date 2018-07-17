@@ -1,0 +1,93 @@
+[
+
+  {
+    "numero": "01",
+    "tipo": "Factura",
+    "factura": "19703",
+    "razon": "MANCHEGO RAMOS JOSE MANUEL",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "382.75"
+  },
+  {
+    "numero": "02",
+    "tipo": "Factura",
+    "factura": "19702",
+    "razon": "NEYRA ORTIZ ROBERTO",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "111.44"
+  },
+  {
+    "numero": "03",
+    "tipo": "Factura",
+    "factura": "19701",
+    "razon": "RUBEN CRISTOBAL MAMANI SALCEDO",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "217.45"
+  },
+  {
+    "numero": "04",
+    "tipo": "Factura",
+    "factura": "19700",
+    "razon": "CHOCANO OLIVERA LUCIO HUGO",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "75.07"
+  },
+  {
+    "numero": "05 ",
+    "tipo": "Factura",
+    "factura": "19699",
+    "razon": "JULIO CESAR PEÑALOZA ANAHUA",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "160.00"
+  },
+  {
+    "numero": "06",
+    "tipo": "Factura",
+    "factura": "19698",
+    "razon": "REYES MARCELO JORGE LUIS",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "46.32"
+  },
+  {
+    "numero": "06",
+    "tipo": "Factura",
+    "factura": "19698",
+    "razon": "REYES MARCELO JORGE LUIS",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "607.20"
+  },
+  {
+    "numero": "07",
+    "tipo": "Boleta",
+    "factura": "19698",
+    "razon": "REYES MARCELO JORGE LUIS",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "80.00"
+  },
+  {
+    "numero": "08",
+    "tipo": "Boleta",
+    "factura": "19698",
+    "razon": "REYES MARCELO JORGE LUIS",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "242.72"
+  },
+  {
+    "numero": "09",
+    "tipo": "Boleta",
+    "factura": "19698",
+    "razon": "REYES MARCELO JORGE LUIS",
+    "anulado": "No",
+    "sunat": "No",
+    "monto": "258.21"
+  }
+]
