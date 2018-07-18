@@ -56,7 +56,7 @@
             <input 
             	type="text" 
             	class="form-control"             	
-            	v-model="pack.descripcion" 
+            	v-model="pack_detalle.descripcion" 
             	placeholder="Leche grande 600ML sin grasa">
           </div>
         </div>
@@ -65,14 +65,14 @@
 
 
 
-        <!-- Cantidad1 -->
+        <!-- Cantidad -->
         <div class="form-group row">
           <label class="col-sm-2 col-form-label">Cantidad</label>
           <div class="col-sm-2">
             <input 
             	type="number" 
             	class="form-control"             	
-            	v-model="pack.descripcion" 
+            	v-model="pack_detalle.cantidad" 
             	placeholder="5">
           </div>
         </div>
@@ -87,7 +87,7 @@
             <input 
             	type="number"
             	class="form-control"             	
-            	v-model="pack.costo" 
+            	v-model="pack_detalle.precio" 
             	placeholder="15.56">
           </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="form-group row">
           <label class="col-sm-2 col-form-label">Activo</label>
           <div class="col-sm-3">
-          	<select class="form-control" v-model="pack.activo">
+          	<select class="form-control" v-model="pack_detalle.activo">
 				      <option value="1">Activo</option>
 				      <option value="0">No Activo</option>				      
 				    </select>            
@@ -114,7 +114,7 @@
             <input 
             	type="text"
             	class="form-control"             	
-            	v-model="pack.imagen" 
+            	v-model="pack_detalle.imagen" 
             	placeholder="imagen.jpg">
           </div>
         </div>
@@ -128,7 +128,7 @@
             <button 
             	type="submit" 
             	class="btn btn-primary form-control"  
-            	v-on:click="enviar(pack)">
+            	v-on:click="enviar(pack_detalle)">
             	Crear Pack
           	</button>
           </div>

@@ -146,6 +146,12 @@
 </div>
 
 
+
+<!-- Javascript
+*********************************** -->
+<?php include './new_javascript.php' ?>
+
+
 <!-- Footer 
 *********************************** -->
 <?php include '../layouts/footer.php'?>
