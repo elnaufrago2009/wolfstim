@@ -24,24 +24,29 @@
 
 
 
+
 			<!-- Breadcum -->
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">Packs</li>
+			    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+			    <li class="breadcrumb-item"><a href="/packs/">Packs</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Data</li>
 			  </ol>
 			</nav>
 
-			
 
-			<!-- title -->
-			<div class="row pb-4">
-				<div class="col-8"><h2 class="bd-title ">Lista de Packs</h2></div>
+			<!-- Titulo del detalle -->
+			<div class="row">
+				<div class="col-8">
+					<!-- title -->
+					<h2 class="bd-title pb-4">Detalle Pack Plus 2018</h2>
+				</div>
 				<div class="col-4 my-auto text-right">
-					<a href="/packs/new.php" class="btn btn-secondary">Nuevo</a>
+					<a href="/packs/detalle_new.php?packid=<?php echo $_GET['packid']?>" class="btn btn-primary">Nuevo</a>
 				</div>
 			</div>
-			
+
+					
 
 			<!-- tabla -->
 			<div class="row">
@@ -56,14 +61,14 @@
 							<th>Activo</th>
 							<th>Acciones</th>
 						</tr>
-						<tr v-for="(pack,index) in packs">
-							<td>{{index}}</td>
+						<tr>
+							<td>01</td>
 							<td>PAPLUS</td>
 							<td>Canasta Pack Plus 2018</td>
 							<td>200.00</td>
 							<td>2018-07-15</td>
 							<td>Si</td>
-							<td><a href="/Packs/detalle.php" class="btn btn-primary btn-sm">Ver Productos</a></td>
+							<td><a href="#" class="btn btn-secondary btn-sm">Editar</a></td>
 						</tr>						
 					</table>
 				</div>
@@ -82,13 +87,7 @@
 
 </div>
 
-<!-- Javascript
-***********************************-->
-<?php include './packs_javascript.php' ?>
-
 
 <!-- Footer 
 *********************************** -->
-<?php include '../layouts/footer.php' ?>
-
-
+<?php include '../layouts/footer.php'?>
