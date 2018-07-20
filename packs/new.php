@@ -14,8 +14,10 @@
 		<?php include '../layouts/sidebar.php' ?>
 
 		
-		<!-- Sidebar Rigth
-		************************************** -->
+		<!-- 
+      Sidebar Rigth
+		  ************************************** 
+    -->
 		<?php include '../layouts/sidebar_derecho.php' ?>
 
 
@@ -76,10 +78,10 @@
 
         <!-- Costo -->
         <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Descripcion</label>
-          <div class="col-sm-2">
+          <label class="col-sm-2 col-form-label">Costo</label>
+          <div class="col-sm-3">
             <input 
-            	type="number"
+            	type="text"
             	class="form-control"             	
             	v-model="pack.costo" 
             	placeholder="15.56">
@@ -108,7 +110,7 @@
             <input 
             	type="text"
             	class="form-control"             	
-            	v-model="pack.imagen" 
+            	v-model="pack.image" 
             	placeholder="imagen.jpg">
           </div>
         </div>

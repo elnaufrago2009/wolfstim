@@ -41,7 +41,6 @@
 					<a href="/packs/new.php" class="btn btn-secondary">Nuevo</a>
 				</div>
 			</div>
-
 			
 
 			<!-- tabla -->
@@ -57,14 +56,14 @@
 							<th>Activo</th>
 							<th>Acciones</th>
 						</tr>
-						<tr>
-							<td>01</td>
+						<tr v-for="(pack,index) in packs">
+							<td>{{index}}</td>
 							<td>PAPLUS</td>
 							<td>Canasta Pack Plus 2018</td>
 							<td>200.00</td>
 							<td>2018-07-15</td>
 							<td>Si</td>
-							<td><a href="/Packs/detalle.php" class="btn btn-primary btn-sm">Detalles</a></td>
+							<td><a href="/Packs/detalle.php" class="btn btn-primary btn-sm">Ver Productos</a></td>
 						</tr>						
 					</table>
 				</div>
@@ -83,7 +82,13 @@
 
 </div>
 
+<!-- Javascript
+***********************************-->
+<?php include './packs_javascript.php' ?>
+
 
 <!-- Footer 
 *********************************** -->
-<?php include '../layouts/footer.php'?>
+<?php include '../layouts/footer.php' ?>
+
+
