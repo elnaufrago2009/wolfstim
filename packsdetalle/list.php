@@ -1,5 +1,3 @@
-
-
 <!-- Header
 ************************************ -->
 <?php include '../layouts/header.php' ?>
@@ -26,23 +24,28 @@
 
 
 
+
 			<!-- Breadcum -->
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
-			    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">Packs</li>
+			    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+			    <li class="breadcrumb-item"><a href="/packs/list.php">Packs</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Data</li>
 			  </ol>
 			</nav>
 
-			
 
-			<!-- title -->
-			<div class="row pb-4">
-				<div class="col-8"><h2 class="bd-title ">Lista de Packs</h2></div>
+			<!-- Titulo del detalle -->
+			<div class="row">
+				<div class="col-8">
+					<!-- title -->
+					<h2 class="bd-title pb-4">Detalle Pack Plus 2018</h2>
+				</div>
 				<div class="col-4 my-auto text-right">
-					<a href="/packs/packs_new.php" class="btn btn-secondary">Nuevo</a>
+					<a href="/packs/detalle_new.php?packid=<?php echo $_GET['packid']?>" class="btn btn-primary">Nuevo</a>
 				</div>
 			</div>
+
 			
 
 			<!-- tabla -->
@@ -50,30 +53,26 @@
 				<div class="col-12">
 					<table class="table">
 						<tr class="bg-light">
-							<th>#</th>
-							<th>Codigo</th>
+							<th>#</th>							
 							<th>Descripcion</th>
-							<th>Costo</th>
+							<th>Cantidad</th>
+							<th>Precio</th>
 							<th>Fecha</th>
 							<th>Activo</th>
 							<th>Acciones</th>
 						</tr>
-						<tr v-for="(pack,index) in packs">
+						<tr v-for="(detalle,index) in packsdetalles">
 							<td>{{index}}</td>
-							<td>{{pack.codigo}}</td>
-							<td>{{pack.descripcion}}</td>
-							<td>{{pack.costo}}</td>
-							<td>{{pack.created}}</td>
-							<td>{{pack.activo}}</td>
-							<td><a v-bind:href="'/Packs/detalle.php?packid='+pack.id" class="btn btn-primary btn-sm">Ver Productos</a></td>
+							<td>{{detalle.descripcion}}</td>
+							<td>{{detalle.cantidad}}</td>
+							<td>{{detalle.precio}}</td>
+							<td>{{detalle.updated}}</td>
+							<td>{{detalle.activo}}</td>
+							<td><a href="#" class="btn btn-secondary btn-sm">Editar</a></td>
 						</tr>						
 					</table>
 				</div>
 			</div>
-
-
-
-
 
 
 
@@ -84,13 +83,14 @@
 
 </div>
 
+
+
 <!-- Javascript
-***********************************-->
-<?php include './packsjs.php' ?>
+------------------------------------>
+<?php include './list_js.php' ?>
+
 
 
 <!-- Footer 
 *********************************** -->
-<?php include '../layouts/footer.php' ?>
-
-
+<?php include '../layouts/footer.php'?>

@@ -12,7 +12,7 @@
 
     methods: {
       getPacks: function () {        
-        axios.get('./packspr.php').then((response) => {
+        axios.get('./list_pro.php').then((response) => {
           this.packs = response.data;
           console.log(response.data);
         });

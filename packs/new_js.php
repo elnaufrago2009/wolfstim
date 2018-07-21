@@ -17,14 +17,13 @@
 
       enviar: function (pack) {
         //console.log(pack);        
-        axios.post('/packs/new_procesa.php', pack).then((response) => {
-          /*
+        axios.post('./new_pro.php', pack).then((response) => {
+          
           if (response.data == 'ok'){
-            console.log('ok')
-          }
-          */
-          console.log(response.data);
-          //window.location.href = "/";
+            window.location.href = "/packs/list.php";
+            console.log('ok');
+          }          
+          
         })
       }
 

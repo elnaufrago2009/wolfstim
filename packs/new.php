@@ -30,7 +30,7 @@
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
 			    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-			    <li class="breadcrumb-item"><a href="/packs/">Packs</a></li>
+			    <li class="breadcrumb-item"><a href="/packs/list.php">Packs</a></li>
 			    <li class="breadcrumb-item active" aria-current="page">Nuevo</li>
 			  </ol>
 			</nav>
@@ -151,7 +151,7 @@
 
 <!-- Javascript
 *********************************** -->
-<?php include './new_javascript.php' ?>
+<?php include './new_js.php' ?>
 
 
 <!-- Footer 

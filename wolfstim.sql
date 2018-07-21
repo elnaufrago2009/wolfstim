@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2018 a las 01:26:34
+-- Tiempo de generación: 21-07-2018 a las 02:01:19
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -36,8 +36,16 @@ CREATE TABLE `detalle_packs` (
   `created` date NOT NULL,
   `updated` date NOT NULL,
   `id_pack` int(5) NOT NULL,
-  `activo` int(2) NOT NULL
+  `activo` int(2) NOT NULL,
+  `imagen` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle_packs`
+--
+
+INSERT INTO `detalle_packs` (`id`, `descripcion`, `cantidad`, `precio`, `created`, `updated`, `id_pack`, `activo`, `imagen`) VALUES
+(1, 'leche', 5, '2.89', '2018-07-20', '2018-07-20', 1, 1, 'image');
 
 -- --------------------------------------------------------
 
@@ -55,6 +63,15 @@ CREATE TABLE `packs` (
   `activo` int(1) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `packs`
+--
+
+INSERT INTO `packs` (`id`, `codigo`, `descripcion`, `costo`, `created`, `updated`, `activo`, `image`) VALUES
+(1, 'PACK01', 'Pack plus Basic', '200.00', '0000-00-00', '0000-00-00', 1, 'image'),
+(2, 'PACK02', 'Pack Master intermedio', '200.00', '0000-00-00', '0000-00-00', 1, 'imagen'),
+(3, 'PACK03', 'Pack Premiun ', '250.00', '0000-00-00', '0000-00-00', 1, 'imagen');
 
 -- --------------------------------------------------------
 
@@ -139,13 +156,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `detalle_packs`
 --
 ALTER TABLE `detalle_packs`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `packs`
 --
 ALTER TABLE `packs`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

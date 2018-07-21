@@ -52,12 +52,4 @@
 
   $conn->close();
 
-
-
-  echo $codigo;
-
-	
-
-
-
 ?>
