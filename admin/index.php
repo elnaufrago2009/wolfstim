@@ -1,11 +1,11 @@
 <?php
 
-	session_start();
-
-
 	// importar header 
-
 	include('../layouts/header.php');
+
+
+	// validar Session
+	include('../validar_session.php');
 
 ?>
 
@@ -35,7 +35,7 @@
 			<!-- Lista de paquetes -->
 
 			<h4 class="bd-title pb-4">Lista de Paquetes</h4>
-			<?php echo $_SESSION['activo']; ?>
+			<?php echo $_SESSION['doc']; ?>
 
 			<div class="card-group">
 			  <div class="card">
