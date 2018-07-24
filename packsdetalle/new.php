@@ -28,8 +28,8 @@
 			<nav aria-label="breadcrumb">
 			  <ol class="breadcrumb">
 			    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-			    <li class="breadcrumb-item"><a href="/packs/">Packs</a></li>
-			    <li class="breadcrumb-item"><a href="/packs/">Packs Plus</a></li>
+			    <li class="breadcrumb-item"><a href="/packs/list.php">Packs</a></li>
+			    <li class="breadcrumb-item"><a href="/packsdetalle/list.php?packid=<?php echo $_GET['packid'] ?>">Packs Detalle</a></li>
 			    <li class="breadcrumb-item active" aria-current="page">Nuevo detalle Pack</li>
 			  </ol>
 			</nav>
@@ -57,7 +57,8 @@
             	type="text" 
             	class="form-control"             	
             	v-model="pack_detalle.descripcion" 
-            	placeholder="Leche grande 600ML sin grasa">
+            	placeholder="Leche grande 600ML sin grasa">            
+              <input type="hidden" v-model="pack_detalle.id_pack">
           </div>
         </div>
 
@@ -137,6 +138,8 @@
 
 
 
+
+
 			</form>
 
 
@@ -147,6 +150,12 @@
 
 
 </div>
+
+<!-- Javascript
+***********************************-->
+<?php include 'new_js.php' ?>
+
+
 
 
 <!-- Footer 

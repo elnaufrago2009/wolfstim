@@ -23,7 +23,7 @@
 
     methods: {
       getPacksDetalles: function () {        
-        axios.get('./list_pro.php').then((response) => {
+        axios.get('./list_pro.php?packid=<?php echo $_GET['packid']?>').then((response) => {
           this.packsdetalles = response.data;
           //console.log(response.data);
         });

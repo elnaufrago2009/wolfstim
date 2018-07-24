@@ -1,4 +1,9 @@
-<?php include 'views/layout/header.php' ?>
+<!-- Pagina principal Wolfstim -->
+
+<!-- Header importar -->
+<?php include 'layouts/header.php' ?>
+
+
 <div class="container-fluid" >
 	<!--<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>-->
 	<div class="row flex-xl-nowrap">

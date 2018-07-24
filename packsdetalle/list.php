@@ -42,7 +42,7 @@
 					<h2 class="bd-title pb-4">Detalle Pack Plus 2018</h2>
 				</div>
 				<div class="col-4 my-auto text-right">
-					<a href="/packs/detalle_new.php?packid=<?php echo $_GET['packid']?>" class="btn btn-primary">Nuevo</a>
+					<a href="/packsdetalle/new.php?packid=<?php echo $_GET['packid']?>" class="btn btn-primary">Nuevo</a>
 				</div>
 			</div>
 

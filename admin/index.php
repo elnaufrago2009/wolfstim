@@ -1,8 +1,11 @@
 <?php
 
+	session_start();
+
+
 	// importar header 
 
-	include('../layouts/admin/header.php');
+	include('../layouts/header.php');
 
 ?>
 
@@ -15,7 +18,7 @@
 			
 			// importar sidebar
 
-			include('../layouts/admin/sidebar.php');
+			include('../layouts/sidebar.php');
 
 		?>
 
@@ -32,6 +35,7 @@
 			<!-- Lista de paquetes -->
 
 			<h4 class="bd-title pb-4">Lista de Paquetes</h4>
+			<?php echo $_SESSION['activo']; ?>
 
 			<div class="card-group">
 			  <div class="card">
@@ -156,6 +160,6 @@
 
 	// importar footer
 	include ('javascript.php');
-	include('../layouts/admin/footer.php');
+	include('../layouts/footer.php');
 
 ?>

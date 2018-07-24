@@ -13,10 +13,15 @@
 </head>
 <body>
 
-<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+
+<!-- Cabezera Header 
+----------------------------------------------->
+<header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">	
 	<a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
 		<i class="fas fa-users" style="font-size: 30px;"></i>
 	</a>
+
+	<!-- Parte izquierda -->
 	<div class="navbar-nav-scroll">
 		<ul class="navbar-nav bd-navbar-nav flex-row">
 			<li class="nav-item">
@@ -36,36 +41,12 @@
 			</li>
 		</ul>
 	</div>
-	
-	<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-		<li class="nav-item dropdown">
-			<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="bd-versions" data-toggle="dropdown"
-			   aria-haspopup="true" aria-expanded="false">
-				v4.1
-			</a>
-			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="bd-versions">
-				<a class="dropdown-item active" href="/">Latest (4.1.x)</a>
-				<a class="dropdown-item" href="/">v4.0.0</a>
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="/">v4 Alpha 6</a>
-				<a class="dropdown-item" href="/">v3.3.7</a>
-				<a class="dropdown-item" href="/">v2.3.2</a>
-			</div>
-		</li>
-		
+
+	<!-- Parte derecha  -->
+	<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">		
 		<li class="nav-item">
-			<a class="nav-link p-2" href="/">
-				<i class="fas fa-file-archive"></i>
-			</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link p-2" href="/">
-				<i class="fab fa-centercode"></i>
-			</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link p-2" href="">
-				<i class="fab fa-centercode"></i>
+			<a class="nav-link p-2" href="/login/login.php">
+				<i class="fa fa-user"></i> Login
 			</a>
 		</li>
 	</ul>
