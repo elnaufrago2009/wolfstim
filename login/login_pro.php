@@ -50,7 +50,8 @@
     // inicia session
     session_start();
     $_SESSION['doc']    = $doc;
-    $_SESSION['activo'] = $row['activo'];    
+    $_SESSION['activo'] = $row['activo'];  
+    $_SESSION['userid'] = $row['id'];
      echo 'ok';
   }else {
      echo 'no';

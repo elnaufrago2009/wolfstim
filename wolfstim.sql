@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-07-2018 a las 02:01:19
+-- Tiempo de generación: 26-07-2018 a las 06:02:54
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -45,7 +45,10 @@ CREATE TABLE `detalle_packs` (
 --
 
 INSERT INTO `detalle_packs` (`id`, `descripcion`, `cantidad`, `precio`, `created`, `updated`, `id_pack`, `activo`, `imagen`) VALUES
-(1, 'leche', 5, '2.89', '2018-07-20', '2018-07-20', 1, 1, 'image');
+(1, 'leche modificada', 5, '2.89', '2018-07-20', '2018-07-20', 1, 1, 'image'),
+(2, 'd', 5, '4.00', '0000-00-00', '0000-00-00', 1, 1, ''),
+(3, 'Leche Grande', 5, '47.54', '0000-00-00', '0000-00-00', 1, 1, ''),
+(4, 'Leche grande', 5, '45.45', '0000-00-00', '0000-00-00', 2, 1, '');
 
 -- --------------------------------------------------------
 
@@ -69,9 +72,9 @@ CREATE TABLE `packs` (
 --
 
 INSERT INTO `packs` (`id`, `codigo`, `descripcion`, `costo`, `created`, `updated`, `activo`, `image`) VALUES
-(1, 'PACK01', 'Pack plus Basic', '200.00', '0000-00-00', '0000-00-00', 1, 'image'),
-(2, 'PACK02', 'Pack Master intermedio', '200.00', '0000-00-00', '0000-00-00', 1, 'imagen'),
-(3, 'PACK03', 'Pack Premiun ', '250.00', '0000-00-00', '0000-00-00', 1, 'imagen');
+(1, 'PACK01', 'Pack plus Basic', '200.00', '0000-00-00', '0000-00-00', 1, 'canasta-1.jpg'),
+(2, 'PACK02', 'Pack Master intermedio', '250.00', '0000-00-00', '0000-00-00', 1, 'canasta-2.jpg'),
+(3, 'PACK03', 'Pack Premiun ', '250.00', '0000-00-00', '0000-00-00', 1, 'canasta-3.jpg');
 
 -- --------------------------------------------------------
 
@@ -80,11 +83,20 @@ INSERT INTO `packs` (`id`, `codigo`, `descripcion`, `costo`, `created`, `updated
 --
 
 CREATE TABLE `user_pack` (
+  `id` int(10) NOT NULL,
   `pack_id` int(2) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `estado` int(1) NOT NULL DEFAULT '0' COMMENT '0 pedido generado, 1 concretado, 2 anulado',
   `created` date NOT NULL,
   `updated` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `user_pack`
+--
+
+INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `updated`) VALUES
+(7, 3, 31, 0, '2018-07-26', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -120,11 +132,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`) VALUES
-(28, NULL, 'a', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
-(29, 'd', 'd', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
-(30, 'd', 'd', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'correo@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0),
-(32, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'correo@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0);
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -143,6 +151,12 @@ ALTER TABLE `packs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `user_pack`
+--
+ALTER TABLE `user_pack`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -156,7 +170,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `detalle_packs`
 --
 ALTER TABLE `detalle_packs`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `packs`
@@ -165,10 +179,16 @@ ALTER TABLE `packs`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `user_pack`
+--
+ALTER TABLE `user_pack`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
