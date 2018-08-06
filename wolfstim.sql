@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-07-2018 a las 06:02:54
+-- Tiempo de generación: 06-08-2018 a las 19:58:54
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -96,7 +96,11 @@ CREATE TABLE `user_pack` (
 --
 
 INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `updated`) VALUES
-(7, 3, 31, 0, '2018-07-26', '0000-00-00');
+(7, 1, 31, 2, '2018-05-01', '2018-05-01'),
+(8, 3, 31, 2, '2018-02-01', '2018-02-10'),
+(9, 3, 31, 2, '2018-06-05', '2018-06-05'),
+(10, 2, 31, 0, '2018-07-30', '0000-00-00'),
+(11, 1, 33, 0, '2018-08-04', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -132,7 +136,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`) VALUES
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0);
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0),
+(32, '', '42516253', '', 0, '', 'elnaufra', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
+(33, 'grover ieon', '42851632', '123', 0, '952631806', 'leodepaydiamond@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -182,13 +188,13 @@ ALTER TABLE `packs`
 -- AUTO_INCREMENT de la tabla `user_pack`
 --
 ALTER TABLE `user_pack`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

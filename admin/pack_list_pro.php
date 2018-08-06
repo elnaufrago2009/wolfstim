@@ -2,8 +2,7 @@
 	
 
 	//conexion importa
-  include '../conn.php';
-
+  include '../conn.php';	
 
 
   // consulta sql pack list

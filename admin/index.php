@@ -37,6 +37,7 @@
 			<h4 class="bd-title pb-4">Lista de Paquetes</h4>
 
 
+
 			<div class="card-group">
 			  <div class="card" v-for="(pack,index) in packs">
 			    <img class="card-img-top" :src="'../assets/img/' + pack.image" alt="Card image cap">
@@ -58,39 +59,57 @@
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalLabel" v-show="previous">Tienes un paquete pendiente por pagar.</h5>
-			        <h5 class="modal-title" id="exampleModalLabel" v-show="!previous">Estas Seguro que quieres Adquirir?</h5>
-
+			        <h5 class="modal-title" id="exampleModalLabel" v-show="guardar">Tienes un paquete pendiente por pagar.</h5>
+			        <h5 class="modal-title" id="exampleModalLabel" v-show="!guardar">Estas Seguro que quieres Adquirir?</h5>
+			        
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
 			      </div>
 			      <div class="modal-body">
+			      	
 			        <h2>{{packsend.descripcion}} <small>S./ {{packsend.costo}}</small> </h2>
 			        <p v-if="packsend.image">
 			        	<img class="card-img-top" v-bind:src="'../assets/img/'+packsend.image" height="200" >
 			        </p>
 			        <p>
-			        	<span v-show="previous">Tienes un pack pendiente por pagar. si deseas elegir otro tienes que anular este primero</span> <br>
+			        	<span v-show="guardar">Tienes un pack pendiente por pagar. si deseas elegir otro tienes que anular este primero</span> <br>
 			        	Numero de cuenta para depositar una vez pedido el pack <br>
 			        	Cuenta: <strong>540-36253686-0-08</strong> <br>
 			        	Nombre: <strong>Wolfstim S.A.C.</strong>
 			        </p>
 			      </div>
 			      <div class="modal-footer">
-			      	<button type="button" v-show="previous" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			        <button type="button" v-show="!previous" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
-			        <button type="button" v-show="!previous" class="btn btn-primary">Save changes</button>
-
-			      </div>
+			      	<button type="button" v-show="guardar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			        <button type="button" v-show="!guardar" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
+			        <button type="button" v-show="!guardar" class="btn btn-primary">Save changes</button>
+			      </div>			      
 			    </div>
 			  </div>
 			</div>
 
 
+			<!-- Formulacio de envio -->
+			<h5 class="bd-title pt-3" v-show="formInforma">Informar Pago</h5>
+
+			<form v-show="formInforma">
+				<div class="form-group row">          
+          <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Codigo Operacion">
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="Descripcion">
+          </div>
+          <button type="submit" class="btn btn-primary col-sm-2">Confirmar Pago</button>
+        </div>			  
+			  
+			</form>
+
+
+
 			<!-- Lista de paquetes comprados-->
 
-			<h5 class="bd-title pt-5 pb-4">Paquetes Adquiridos</h5>
+			<h5 class="bd-title pt-4 pb-4">Paquetes Adquiridos</h5>
 			<div class="row">
 				<div class="col-12">
 					<table class="table table-striped table-bordered">
@@ -98,34 +117,18 @@
 							<th>#</th>
 							<th>Descripcion</th>
 							<th>Costo</th>
-							<th>Detalles</th>
-							<th>Fecha</th>
+							<th>Fecha Pedido</th>
+							<th>Fecha Pago</th>
 							<th>Estado</th>
 						</tr>
-						<tr>
-							<td>01</td>
-							<td>Canasta Pack Plus</td>
-							<td>200.00 S/.</td>
-							<td>Compra no regular</td>
-							<td>2018-07-13</td>
+						<tr v-for="(userPack,index) in user_packs">
+							<td>{{index}}</td>
+							<td>{{userPack.descripcion}}</td>
+							<td>{{userPack.costo}} S/.</td>
+							<td>{{userPack.created}} </td>
+							<td>{{userPack.updated}} </td>
 							<td>Pendiente</td>
-						</tr>
-						<tr>
-							<td>02</td>
-							<td>Canasta Pack Plus</td>
-							<td>200.00 S/.</td>
-							<td>Compra no regular</td>
-							<td>2018-07-13</td>
-							<td>Activo</td>
-						</tr>
-						<tr>
-							<td>03</td>
-							<td>Canasta Pack Plus</td>
-							<td>200.00 S/.</td>
-							<td>Compra no regular</td>
-							<td>2018-07-13</td>
-							<td>Caducado</td>
-						</tr>
+						</tr>						
 					</table>
 				</div>
 			</div>

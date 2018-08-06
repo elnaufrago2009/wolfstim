@@ -1,4 +1,4 @@
-<?php include '../views/layout/header.php' ?>
+<?php include '../layouts/header.php' ?>
 	<div class="container-fluid" id="app">
 		<!--<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>-->
 		<div class="row flex-xl-nowrap">
@@ -110,4 +110,4 @@
 	</div>
 
 <?php include '../assets/js/views/registro.php'?>
-<?php include '../views/layout/footer.php'?>
+<?php include '../layouts/footer.php'?>

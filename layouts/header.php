@@ -67,7 +67,7 @@
 	<?php if (isset($_SESSION['doc'])) {
 		echo '<a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/admin/destroy_session.php">Salir</a>';
 	}else{
-		echo '<a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/admin/">Registrate</a>';
+		echo '<a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/registro/">Registrate</a>';
 	} ?>
 	
 </header>
