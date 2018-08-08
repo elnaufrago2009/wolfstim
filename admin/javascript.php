@@ -41,7 +41,7 @@
         });
       },
       getFormSend: function(){
-        axios.get('./form_informa_pro.php').then(response => {
+        axios.get('./form_informa_pro.php?user_id=<?php echo $_SESSION['userid'] ?>').then(response => {
           this.formInforma = response.data;
           console.log(response.data);
         });
