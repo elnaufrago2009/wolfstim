@@ -1,51 +1,25 @@
 <?php 
 
+	/*
+	 *	Archivo que procesa si va salir el formulario de envio de pago
+	*/
 
-	//conexion importa
+
+
+  //conexion importa
   include '../conn.php';
 
 
+  //datos recibidos por get
+  $userid 		=		$_GET['userid'];  
 
 
 
-	// Recoge las variables del post de la vista
-  $post = json_decode(file_get_contents('php://input'), true);
+  // consulta si hay 
+  $informaPendientes = $conn->query("SELECT * FROM user_pack where user_id=$user_id and estado=0")->fetch_array(MYSQLI_ASSOC);
 
+  
 
-
-
-  //datos recibidos
-  $codigo           =     $post['codigo'];
-  $descripcion      =     $post['descripcion'];
-  $costo            =     $post['costo'];
-  $activo           =     $post['activo'];
-  $image            =     $post['image'];
-
-
-
-  // insercion
-  $sql = "INSERT INTO packs (
-                              codigo,
-                              descripcion,
-                              costo,
-                              activo,
-                              image
-                            ) VALUES (
-                              '$codigo',
-                              '$descripcion',
-                              '$costo',
-                              '$activo',
-                              '$image'
-                            )";
-
-  if ($conn->query($sql) === TRUE) {
-    echo "ok";
-  } else {
-    echo $conn->error;
-  }
-
-  $conn->close();
-
-	echo 'true';
+  echo 'true';
 
 ?>
