@@ -15,11 +15,15 @@
 
 
 
-  // consulta si hay 
-  $informaPendientes = $conn->query("SELECT * FROM user_pack where user_id=$user_id and estado=0")->fetch_array(MYSQLI_ASSOC);
-
+  // consulta si hay
+  $sql_info_pending = "SELECT count(*) cantidad FROM user_pack where user_id=$userid and estado=0";  
+  $info_pending = $conn->query($sql_info_pending)->fetch_array(MYSQLI_ASSOC);
+  $cantidad = $info_pending['cantidad'];
+  if ($cantidad > 0) {
+    echo 'true';
+  }else {
+    echo 'false';
+  }
   
-
-  echo 'true';
 
 ?>

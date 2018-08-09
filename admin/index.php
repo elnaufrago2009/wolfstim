@@ -94,15 +94,14 @@
 
 			<form v-show="formInforma">
 				<div class="form-group row">          
-          <div class="col-sm-3">
-            <input type="text" class="form-control" placeholder="Codigo Operacion">
-          </div>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" placeholder="Descripcion">
-          </div>
-          <button type="submit" class="btn btn-primary col-sm-2">Confirmar Pago</button>
-        </div>			  
-			  
+	          <div class="col-sm-3">
+	            <input type="text" class="form-control" placeholder="Codigo Operacion">
+	          </div>
+	          <div class="col-sm-6">
+	            <input type="text" class="form-control" placeholder="Descripcion">
+	          </div>
+	          <button type="submit" class="btn btn-primary col-sm-2">Confirmar Pago</button>
+	        </div>			  
 			</form>
 
 
