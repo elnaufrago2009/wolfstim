@@ -92,15 +92,16 @@
 			<!-- Formulacio de envio -->
 			<h5 class="bd-title pt-3" v-show="formInforma">Informar Pago</h5>
 
-			<form v-show="formInforma">
+			<form v-show="formInforma" v-on:submit.prevent>
 				<div class="form-group row">          
 	          <div class="col-sm-3">
-	            <input type="text" class="form-control" placeholder="Codigo Operacion">
+	            <input type="text" class="form-control" placeholder="Codigo Operacion" v-model="pago.codigo">
 	          </div>
 	          <div class="col-sm-6">
-	            <input type="text" class="form-control" placeholder="Descripcion">
+	            <input type="text" class="form-control" placeholder="Descripcion" v-model="pago.descripcion">
+	            <input type="hidden" v-model="pago.userid">
 	          </div>
-	          <button type="submit" class="btn btn-primary col-sm-2">Confirmar Pago</button>
+	          <button type="submit" class="btn btn-primary col-sm-2" v-on:click="procesa_pago(pago)">Confirmar Pago</button>
 	        </div>			  
 			</form>
 

@@ -6,7 +6,11 @@
       user_packs: {},
       packsend: {},
       guardar: false,
-      formInforma: true
+      formInforma: true,
+      pago: {
+        userid: '<?php echo $_SESSION['userid'] ?>',
+        descripcion: 'Por favor revise mi pago'
+      }
     },
     methods: {
       getDetalle: function (pack_id,user_id) {
@@ -16,7 +20,7 @@
             this.guardar = true;
           }
           this.packsend = response.data;          
-          console.log(response.data);
+          //console.log(response.data);
         });
 
         //activa el modal  
@@ -37,14 +41,24 @@
       getUserOrders: function(){
         axios.get('./get_users_orders.php?user_id=<?php echo $_SESSION['userid'] ?>').then(response=>{
           this.user_packs = response.data;
-          console.log(this.user_packs);
+          //console.log(this.user_packs);
         });
       },
       getFormSend: function(){
         axios.get('./form_informa_pro.php?userid=<?php echo $_SESSION['userid'] ?>').then(response => {
           this.formInforma = response.data;
-          console.log(response.data);
+          //console.log(response.data);
         });
+      },
+      procesa_pago: function(pago){
+        axios.get('./form_pago_procesa.php?userid=<?php echo $_SESSION['userid'] ?>').then(response => {
+          console.log(response.data);
+          if (response.data == true) {
+            window.location.href = "/admin/";
+          }
+              
+        });
+        
       }
     },    
     created: function(){
