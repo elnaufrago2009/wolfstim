@@ -51,7 +51,7 @@
         });
       },
       procesa_pago: function(pago){
-        axios.get('./form_pago_procesa.php?userid=<?php echo $_SESSION['userid'] ?>').then(response => {
+        axios.post('./form_pago_procesa.php', pago).then(response => {
           console.log(response.data);
           if (response.data == true) {
             window.location.href = "/admin/";

@@ -89,7 +89,7 @@
 			</div>
 
 
-			<!-- Formulacio de envio -->
+			<!-- Formulacio de envio de pago -->
 			<h5 class="bd-title pt-3" v-show="formInforma">Informar Pago</h5>
 
 			<form v-show="formInforma" v-on:submit.prevent>

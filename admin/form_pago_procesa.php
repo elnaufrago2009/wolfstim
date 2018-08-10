@@ -6,10 +6,14 @@
 
   //conexion importa
   include '../conn.php';
+  // Recoge las variables del post de la vista
+  $post = json_decode(file_get_contents('php://input'), true);
 
 
 	//datos recibidos
-  $userid          =     $_GET['userid'];
+  $userid          =     $_SESSION['userid'];
+  $codigo       =   $post['codigo'];
+  $descripcion  =   $post['descripcion'];
 
 
   $sql_info_pending = "SELECT * FROM user_pack where user_id=$userid and estado=0";  
