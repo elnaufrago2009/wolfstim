@@ -4,6 +4,9 @@
 	 *	Archivo que procesa el ingreso de los nuevos Packs
 	*/
 
+
+  session_start();
+
   //conexion importa
   include '../conn.php';
   // Recoge las variables del post de la vista
@@ -23,7 +26,7 @@
 
 
 
-  $sql_updated = "UPDATE user_pack SET estado=1 WHERE pack_id=$packid and user_id=$userid and created='$created'";
+  $sql_updated = "UPDATE user_pack SET estado=1, pago_operacion='$codigo', pago_descripcion='$descripcion' WHERE pack_id=$packid and user_id=$userid and created='$created'";
   if (mysqli_query($conn, $sql_updated)) {
     echo "true";
   } else {

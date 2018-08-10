@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2018 a las 19:58:54
+-- Tiempo de generación: 10-08-2018 a las 20:12:21
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -88,19 +88,22 @@ CREATE TABLE `user_pack` (
   `user_id` int(11) NOT NULL,
   `estado` int(1) NOT NULL DEFAULT '0' COMMENT '0 pedido generado, 1 concretado, 2 anulado',
   `created` date NOT NULL,
-  `updated` date NOT NULL
+  `fecha_envio_pago` date NOT NULL,
+  `updated` date NOT NULL,
+  `pago_operacion` varchar(100) NOT NULL,
+  `pago_descripcion` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `user_pack`
 --
 
-INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `updated`) VALUES
-(7, 1, 31, 2, '2018-05-01', '2018-05-01'),
-(8, 3, 31, 2, '2018-02-01', '2018-02-10'),
-(9, 3, 31, 2, '2018-06-05', '2018-06-05'),
-(10, 2, 31, 0, '2018-07-30', '0000-00-00'),
-(11, 1, 33, 0, '2018-08-04', '0000-00-00');
+INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `fecha_envio_pago`, `updated`, `pago_operacion`, `pago_descripcion`) VALUES
+(7, 1, 31, 2, '2018-05-01', '0000-00-00', '2018-05-01', '', ''),
+(8, 3, 31, 2, '2018-02-01', '0000-00-00', '2018-02-10', '', ''),
+(9, 3, 31, 2, '2018-06-05', '0000-00-00', '2018-06-05', '', ''),
+(10, 2, 31, 1, '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago'),
+(11, 1, 33, 0, '2018-08-04', '0000-00-00', '0000-00-00', '', '');
 
 -- --------------------------------------------------------
 
