@@ -17,7 +17,7 @@ include('../validar_session.php');
       <!-- contenido del medio  -->
       <main class="col-12 col-md-9 col-xl-8 py-md-4 pl-md-5 bd-content">
         <h1>Lista de pagos para verificar</h1>
-        {{mensaje}}
+
         <!-- tabla de pagos -->
         <table class="table table-sm table-striped">
           <tr>
@@ -35,13 +35,31 @@ include('../validar_session.php');
             <td>{{pedido.pago_operacion}}</td>
             <td>{{pedido.created}}</td>
             <td>
-              <a href="#" class="btn btn-primary btn-sm">Confirmar</a>
+              <button type="button" class="btn btn-primary btn-sm" @click="get_">Confirmar</button>
             </td>
           </tr>
         </table>
         <!-- end tabla de pagos -->
 
       </main>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h2>{{packsend.descripcion}} <small>S./ {{packsend.costo}}</small> </h2>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" v-show="guardar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" v-show="!guardar" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
+        </div>
+      </div>
     </div>
   </div>
 
