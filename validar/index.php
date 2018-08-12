@@ -35,7 +35,11 @@ include('../validar_session.php');
             <td>{{pedido.pago_operacion}}</td>
             <td>{{pedido.created}}</td>
             <td>
-              <button type="button" class="btn btn-primary btn-sm" @click="get_">Confirmar</button>
+              <button 
+								type="button" 
+								class="btn btn-primary btn-sm" 
+								@click="get_modal()">Confirmar
+							</button>
             </td>
           </tr>
         </table>
@@ -51,13 +55,16 @@ include('../validar_session.php');
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
-
-          <h2>{{packsend.descripcion}} <small>S./ {{packsend.costo}}</small> </h2>
-
+          <h3>Esta seguro que el pago ha sido verificado?</h3>
         </div>
         <div class="modal-footer">
-          <button type="button" v-show="guardar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" v-show="!guardar" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
+          <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button 
+		type="button" 
+		@click="verificar_pago()"  
+		class="btn btn-secondary" 
+		data-dismiss="modal">Verificar Pago
+	  </button>
         </div>
       </div>
     </div>
@@ -77,11 +84,18 @@ include('../validar_session.php');
             this.pedidos = response.data;
             console.log(response.data);
           })
+        },
+        get_modal: function () {
+          $("#modal_pago").modal('show');
+        },
+	verificar_pago: function(){
+	  
         }
       },
       created: function(){
         this.get_pagos_list()
       }
+      
     });
   </script>
 
