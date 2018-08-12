@@ -38,7 +38,7 @@ include('../validar_session.php');
               <button 
 								type="button" 
 								class="btn btn-primary btn-sm" 
-								@click="get_modal()">Confirmar
+								@click="get_modal(pedido.id)">Confirmar
 							</button>
             </td>
           </tr>
