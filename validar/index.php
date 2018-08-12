@@ -60,11 +60,11 @@ include('../validar_session.php');
         <div class="modal-footer">
           <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           <button 
-		type="button" 
-		@click="verificar_pago()"  
-		class="btn btn-secondary" 
-		data-dismiss="modal">Verificar Pago
-	  </button>
+        		type="button" 
+        		@click="verificar_pago()"  
+        		class="btn btn-secondary" 
+        		data-dismiss="modal">Verificar Pago
+	         </button>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ include('../validar_session.php');
         get_modal: function () {
           $("#modal_pago").modal('show');
         },
-	verificar_pago: function(){
+        verificar_pago: function(){
 	  
         }
       },
