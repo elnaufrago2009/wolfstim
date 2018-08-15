@@ -45,30 +45,34 @@ include('../validar_session.php');
         </table>
         <!-- end tabla de pagos -->
 
+        <!-- Modal -->
+        <div class="modal fade" id="modal_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h3>Esta seguro que el pago ha sido verificado? </h3>                 
+              </div>
+              <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button 
+                  type="button" 
+                  @click="verificar_pago(pedidoid)"  
+                  class="btn btn-secondary" 
+                  data-dismiss="modal">Verificar Pago
+                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </main>
     </div>
+
   </div>
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="modal_pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <h3>Esta seguro que el pago ha sido verificado?</h3>
-        </div>
-        <div class="modal-footer">
-          <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button 
-        		type="button" 
-        		@click="verificar_pago()"  
-        		class="btn btn-secondary" 
-        		data-dismiss="modal">Verificar Pago
-	         </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
 
   <script>
@@ -76,20 +80,27 @@ include('../validar_session.php');
       el: '#app',
       data: {
         mensaje: 'moises',
-        pedidos: {}
+        pedidos: {},
+        pedidoid: 'a'        
       },
       methods: {
         get_pagos_list: function () {
           axios.get('./get_pagos_list.php').then(response => {
-            this.pedidos = response.data;
-            console.log(response.data);
-          })
+            this.pedidos = response.data;            
+          });
         },
-        get_modal: function () {
-          $("#modal_pago").modal('show');
+        get_modal: function(pedido){
+          this.pedidoid = pedido;
+          $("#modal_pago").modal('show');          
         },
-        verificar_pago: function(){
-	  
+        verificar_pago: function(pedido){
+          axios.get('./confirmar_pago.php?pedido_id=' + pedido).then(response => {
+            if (response.data == 'ok') {
+              window.location.href = "/validar/";
+            }
+            //console.log(response.data);
+          });
+	       
         }
       },
       created: function(){

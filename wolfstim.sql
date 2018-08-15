@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2018 a las 20:12:21
+-- Tiempo de generación: 15-08-2018 a las 22:46:53
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -102,8 +102,7 @@ INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `fecha
 (7, 1, 31, 2, '2018-05-01', '0000-00-00', '2018-05-01', '', ''),
 (8, 3, 31, 2, '2018-02-01', '0000-00-00', '2018-02-10', '', ''),
 (9, 3, 31, 2, '2018-06-05', '0000-00-00', '2018-06-05', '', ''),
-(10, 2, 31, 1, '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago'),
-(11, 1, 33, 0, '2018-08-04', '0000-00-00', '0000-00-00', '', '');
+(10, 2, 31, 2, '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago');
 
 -- --------------------------------------------------------
 
@@ -191,7 +190,7 @@ ALTER TABLE `packs`
 -- AUTO_INCREMENT de la tabla `user_pack`
 --
 ALTER TABLE `user_pack`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
