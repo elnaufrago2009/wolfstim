@@ -14,6 +14,9 @@
   $celular = $registro['celular'];
   $dni_patrocinador = $registro['dni_patrocinador'];
 
+  $sql_comprueba_unico = "select count(*) dni_unico from usuarios where dni='42516253'";
+  $comprueba_unico = $conn->query($sql_comprueba_unico)->fetch_array(MYSQLI_ASSOC);
+
 
   // insercion
   $sql = "INSERT INTO usuarios (dni,correo,password,nombre,celular,arbol_padre) VALUES ('$dni','$correo','$password','$nombres','$celular','$dni_patrocinador ')";
