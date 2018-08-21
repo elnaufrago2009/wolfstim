@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 15-08-2018 a las 22:46:53
--- Versión del servidor: 10.1.33-MariaDB
--- Versión de PHP: 7.2.6
+-- Servidor: localhost:3306
+-- Tiempo de generación: 21-08-2018 a las 23:29:05
+-- Versión del servidor: 5.7.23-0ubuntu0.18.04.1
+-- Versión de PHP: 7.2.7-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -87,11 +85,11 @@ CREATE TABLE `user_pack` (
   `pack_id` int(2) NOT NULL,
   `user_id` int(11) NOT NULL,
   `estado` int(1) NOT NULL DEFAULT '0' COMMENT '0 pedido generado, 1 concretado, 2 anulado',
-  `created` date NOT NULL,
-  `fecha_envio_pago` date NOT NULL,
-  `updated` date NOT NULL,
-  `pago_operacion` varchar(100) NOT NULL,
-  `pago_descripcion` varchar(300) NOT NULL
+  `created` date DEFAULT NULL,
+  `fecha_envio_pago` date DEFAULT NULL,
+  `updated` date DEFAULT NULL,
+  `pago_operacion` varchar(100) DEFAULT NULL,
+  `pago_descripcion` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -102,7 +100,8 @@ INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `fecha
 (7, 1, 31, 2, '2018-05-01', '0000-00-00', '2018-05-01', '', ''),
 (8, 3, 31, 2, '2018-02-01', '0000-00-00', '2018-02-10', '', ''),
 (9, 3, 31, 2, '2018-06-05', '0000-00-00', '2018-06-05', '', ''),
-(10, 2, 31, 2, '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago');
+(10, 2, 31, 2, '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago'),
+(12, 2, 33, 2, '2018-08-19', NULL, NULL, 'D457814', 'Por favor revise mi pago');
 
 -- --------------------------------------------------------
 
@@ -115,7 +114,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(100) DEFAULT NULL,
   `dni` varchar(100) DEFAULT NULL COMMENT 'sirve para el login de la cuenta',
   `password` varchar(50) NOT NULL COMMENT 'contraseña junto con el dni para entrar a la cuenta',
-  `tipuser` int(2) NOT NULL COMMENT 'tipo de usuario de acceso a la cuenta, ACL. esto es el nivel de usuario 0 nada, 1 usuario normal activado, 9 super administrador',
+  `tipuser` int(2) NOT NULL DEFAULT '0' COMMENT 'tipo de usuario de acceso a la cuenta, ACL. esto es el nivel de usuario 0 nada, 1 usuario normal activado, 9 super administrador',
   `celular` varchar(50) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL COMMENT 'este es opcional y se puede utilizar para hacer login con la cuenta',
   `provincia` int(3) DEFAULT NULL COMMENT 'id de la tabla provincias',
@@ -125,12 +124,12 @@ CREATE TABLE `usuarios` (
   `det_pago_nombre` varchar(100) DEFAULT NULL,
   `det_pago_dni` varchar(12) DEFAULT NULL,
   `arbol_padre` int(11) NOT NULL COMMENT 'id padre se activa solo cuando el cliente hace una compra de un paquete por primera vez',
-  `arbol_hijo1` int(11) NOT NULL,
-  `arbol_hijo2` int(11) NOT NULL,
-  `arbol_hijo3` int(11) NOT NULL,
-  `arbol_hijo4` int(11) NOT NULL,
-  `arbol_nivel` int(2) NOT NULL,
-  `activo` int(2) NOT NULL COMMENT 'se activa junto con el arbol_padre pero este es un indicador fijo, por que puede que sea que le demos de baja y eso cambiaria las reglas de usar solo un campo.'
+  `arbol_hijo1` int(11) NOT NULL DEFAULT '0',
+  `arbol_hijo2` int(11) NOT NULL DEFAULT '0',
+  `arbol_hijo3` int(11) NOT NULL DEFAULT '0',
+  `arbol_hijo4` int(11) NOT NULL DEFAULT '0',
+  `arbol_nivel` int(2) NOT NULL DEFAULT '0',
+  `activo` int(2) NOT NULL DEFAULT '0' COMMENT 'se activa junto con el arbol_padre pero este es un indicador fijo, por que puede que sea que le demos de baja y eso cambiaria las reglas de usar solo un campo.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -138,8 +137,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`) VALUES
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0),
-(32, '', '42516253', '', 0, '', 'elnaufra', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0),
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 0, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 42851632, 0, 0, 0, 0, 0),
 (33, 'grover ieon', '42851632', '123', 0, '952631806', 'leodepaydiamond@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, 42516253, 0, 0, 0, 0, 0, 0);
 
 --
@@ -179,26 +177,21 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `detalle_packs`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `packs`
 --
 ALTER TABLE `packs`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT de la tabla `user_pack`
 --
 ALTER TABLE `user_pack`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

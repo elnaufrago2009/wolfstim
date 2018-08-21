@@ -33,15 +33,13 @@
                               '$created'
                             )";
     if ($conn->query($sql) === TRUE) {
-    echo "ok";
+      echo "ok";
     } else {
       echo $conn->error;
     }
-  }
-
-  
-
-  // cierra la conexion
+  }  
   $conn->close();
+
+
 
 ?>

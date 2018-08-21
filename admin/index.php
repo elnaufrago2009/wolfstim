@@ -82,7 +82,7 @@
 			      <div class="modal-footer">
 			      	<button type="button" v-show="guardar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			        <button type="button" v-show="!guardar" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
-			        <button type="button" v-show="!guardar" class="btn btn-primary">Save changes</button>
+			        <button type="button" v-show="!guardar" class="btn btn-primary">Cerrar</button>
 			      </div>			      
 			    </div>
 			  </div>
@@ -133,6 +133,53 @@
 				</div>
 			</div>
 						
+
+			<!-- Arbol -->
+			<div class="row">
+				<h5 class="bd-title">Arbol</h5>
+
+				<!-- padre -->
+				<div class="col-12 text-center" v-show="tree.padre_estado=='true'">
+					{{tree.padre_nombre}} (Padre) <br>
+					<img src="/assets/img/user_anonimo.png" alt="" class="rounded-circle" width="120">
+				</div>
+
+				<!-- Tu -->
+				<div class="col-12 text-center" v-show="tree.tu_estado=='true'">
+					{{tree.tu_nombre}} (Tu) <br>
+					<img src="/assets/img/user_anonimo.png" alt="" class="rounded-circle" width="120">
+				</div>
+
+				<!-- Hijo 01 -->
+				<div class="col-3 text-center" v-show="tree.hijo1_estado=='true'">
+					{{tree.hijo1_nombre}} (Hijo 1) <br>
+					<img src="/assets/img/user_anonimo.png" alt="" class="rounded-circle" width="120">
+				</div>
+
+				<!-- Hijo 02 -->
+				<div class="col-3 text-center" v-show="tree.hijo2_estado=='true'">
+					{{tree.hijo2_nombre}} (Hijo 2) <br>
+					<img src="/assets/img/user_anonimo.png" alt="" class="rounded-circle" width="120">
+				</div>
+
+				<!-- Hijo 03 -->
+				<div class="col-3 text-center" v-show="tree.hijo3_estado=='true'">
+					{{tree.hijo3_nombre}} (Hijo 3) <br>
+					<img src="/assets/img/user_anonimo.png" alt="" class="rounded-circle" width="120">
+				</div>
+
+				<!-- Hijo 04 -->
+				<div class="col-3 text-center" v-show="tree.hijo4_estado=='true'">
+					 {{tree.hijo4_nombre}} (Hijo 4) <br>
+					<img src="/assets/img/user_anonimo.png" alt="" class="rounded-circle" width="120" v-show="tree.hijo4_estado=='true'">
+				</div>
+
+
+			</div>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
 				
 		</main>
 
@@ -140,11 +187,84 @@
 
 </div>
 
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      packs: {},
+      user_packs: {},
+      packsend: {},
+      tree: {},
+      guardar: false,
+      formInforma: true,
+      pago: {
+        userid: '<?php echo $_SESSION['userid'] ?>',
+        descripcion: 'Por favor revise mi pago'
+      }
+    },
+    methods: {
+      getDetalle: function (pack_id,user_id) {
+        // obtiene el pack
+        axios.get('./get_pack_pro.php?pack_id=' + pack_id + '&user_id=' + user_id).then((response) => {          
+          if(response.data.guardar == 'no'){
+            this.guardar = true;
+          }
+          this.packsend = response.data;          
+          //console.log(response.data);
+        });
 
-<?php 
+        //activa el modal  
+        $("#modal_add_pack").modal('show');
+        
+      },
+      getPacks: function () {        
+        axios.get('./pack_list_pro.php').then((response) => {
+          this.packs = response.data;          
+        });
+      },
+      getOrder: function(pack_id,user_id){
+        axios.get('./get_order_pro.php?pack_id=' + pack_id + '&user_id=' + user_id).then((response)=>{
+          if (response.data == 'ok') {
+            window.location.href = "/admin/";
+          }
+          //console.log(response.data);
+        });
+      },
+      getUserOrders: function(){
+        axios.get('./get_users_orders.php?user_id=<?php echo $_SESSION['userid'] ?>').then(response=>{
+          this.user_packs = response.data;
+          //console.log(this.user_packs);
+        });
+      },
+      getFormSend: function(){
+        axios.get('./form_informa_pro.php?userid=<?php echo $_SESSION['userid'] ?>').then(response => {
+          this.formInforma = response.data;
+          //console.log(response.data);
+        });
+      },
+      procesa_pago: function(pago){
+        axios.post('./form_pago_procesa.php', pago).then(response => {
+          console.log(response.data);
+          if (response.data == true) {
+            window.location.href = "/admin/";
+          }
+              
+        });        
+      },
+      get_tree: function(user_id){
+      	axios.get('get_tree.php?user_id=<?php echo $_SESSION['userid'] ?>').then(response => {
+      		this.tree = response.data;
+      		console.log(this.tree.hijo1_estado);
+      	});
+      }
+    },    
+    created: function(){
+      this.getPacks();
+      this.getUserOrders();
+      this.getFormSend();
+      this.get_tree();
+    }
+  })
+</script>
 
-	// importar footer
-	include ('javascript.php');
-	include('../layouts/footer.php');
-
-?>
+<?php include('../layouts/footer.php'); ?>
