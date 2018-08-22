@@ -23,12 +23,12 @@
                 Wolfstim
             </a>
             <ul class="nav bd-sidenav">
-                <li class="bd-sidnav-active"><a href="/docs/4.1/getting-started/introduction/">Politica Organizacional</a></li>
-                <li><a href="/docs/4.1/getting-started/download/">Mision y Vision</a></li>
-                <li><a href="/docs/4.1/getting-started/contents/">Nuestros Productos</a></li>
-                <li><a href="/docs/4.1/getting-started/browsers-devices/">Preguntas Frecuentes</a></li>
-                <li><a href="/docs/4.1/getting-started/javascript/">Centros de distribucion</a></li>
-                <li><a href="/docs/4.1/getting-started/javascript/">Contactenos</a></li>
+                <li><a href="/pages/politica-organizacional.php">Politica Organizacional</a></li>
+                <li><a href="/pages/mision-vision.php">Mision y Vision</a></li>
+                <li><a href="/pages/list_products.php">Nuestros Productos</a></li>
+                <li><a href="/pages/faqs.php">Preguntas Frecuentes</a></li>
+                <li><a href="/pages/centros-distribucion.php">Centros de distribucion</a></li>
+                <li><a href="/pages/contactenos.php">Contactenos</a></li>
             </ul>
         </div>
         <div class="bd-toc-item">
