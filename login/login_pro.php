@@ -52,6 +52,9 @@
     $_SESSION['doc']    = $doc;
     $_SESSION['activo'] = $row['activo'];  
     $_SESSION['userid'] = $row['id'];
+    $_SESSION['name']   = $row['nombre'];
+    $_SESSION['tipuser']   = $row['tipuser'];
+    $_SESSION['activo']   = $row['activo'];
      echo 'ok';
   }else {
      echo 'no';

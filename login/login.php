@@ -44,7 +44,7 @@
 
 			<!-- Formulario del login -->
 			<div class="row">
-				<div class="col-6">
+				<div class="col-md-12 col-lg-6">
 					<form v-on:submit.prevent>
 					  <div class="form-group">
 					    <label for="exampleInputEmail1">Email o dni</label>
@@ -59,7 +59,7 @@
 					    <input type="checkbox" class="form-check-input" id="exampleCheck1">
 					    <label class="form-check-label" for="exampleCheck1">Acepto Los Terminos de Wolsftim</label>
 					  </div>
-					  <button type="submit" class="btn btn-primary" v-on:click="enviar(login)">Submit</button>
+					  <button type="submit" class="btn btn-primary" v-on:click="enviar(login)">Entrar</button>
 					</form>
 				</div>
 			</div>

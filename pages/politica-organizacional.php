@@ -43,7 +43,7 @@
 			</p>
 			<p>
 				Mantener un programa de capacitaciones y entrenamiento para asegurar que todos nuestros afiliados sean capaces de cumplir con sus objetivos personales y de la organizacion. Generar bienestar y rentabilidad a todo nivel de la organizacion.
-			</p>
+			</p>			
 
 		</main>
 	

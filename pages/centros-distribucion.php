@@ -20,7 +20,7 @@
 			
 			<h1 class="bd-title">Centros de distribucion</h1>
 			<p class="bd-lead">
-				contenido
+				Tacna - Peru. cono sur.
 			</p>
 
 		</main>

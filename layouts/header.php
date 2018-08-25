@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Woltim</title>
+	<title>Wolfstim</title>
 	<!-- CSS Import -->
 	<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/assets/css/docs.min.css" rel="stylesheet">
@@ -25,20 +25,17 @@
 	<div class="navbar-nav-scroll">
 		<ul class="navbar-nav bd-navbar-nav flex-row">
 			<li class="nav-item">
-				<a class="nav-link active" href="/">WolfTim</a>
+				<a class="nav-link active" href="/">WolfsTim</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/">Productos</a>
+				<a class="nav-link" href="/pages/faqs.php">Preguntas Frecuentes</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/">Mision & Vision</a>
+				<a class="nav-link" href="/pages/mision-vision.php">Mision y Vision</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/">Noticias</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/">Centros Distribucion</a>
-			</li>
+				<a class="nav-link" href="/pages/centros-distribucion.php">Centros Distribucion</a>
+			</li>	
 		</ul>
 	</div>
 	<?php session_start(); ?>
@@ -51,9 +48,12 @@
 			<?php if (isset($_SESSION['doc'])) {
 				echo '					
 					<a class="nav-link p-2" href="/admin/index.php">
-						<i class="fa fa-lock"></i> '.$_SESSION['doc'].'
-					</a>					
-				';
+						<i class="fa fa-lock"></i> '.$_SESSION['doc'];
+						if ($_SESSION['activo']=='1') {
+              echo ' (Activo)</a>';  
+            }else {
+              echo ' (Inactivo)</a>';
+            }					
 			}else{
 				echo '
 					<a class="nav-link p-2" href="/login/login.php">

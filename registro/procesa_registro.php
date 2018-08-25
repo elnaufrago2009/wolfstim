@@ -42,6 +42,25 @@
       $sql_insert = "INSERT INTO usuarios (dni,correo,password,nombre,celular,arbol_padre) VALUES ('$dni','$correo','$password','$nombres','$celular','$dni_patrocinador')";
       $conn->query($sql_insert);
 
+
+      // Login
+      session_start();
+      if ($correo != '') {         
+        $sql_login = "SELECT * FROM usuarios where correo='$correo' and password='$password'";        
+        $sql_login = $conn->query($sql_login)->fetch_array(MYSQLI_ASSOC);        
+        $_SESSION['doc']    = $correo;
+      }else {        
+        $sql_login = "SELECT * FROM usuarios where dni='$dni' and password='$password'";        
+        $sql_login = $conn->query($sql_login)->fetch_array(MYSQLI_ASSOC);
+        $_SESSION['doc']    = $dni;
+      }
+      $_SESSION['activo'] = $sql_login['activo'];  
+      $_SESSION['userid'] = $sql_login['id'];
+      $_SESSION['name']   = $sql_login['nombre'];
+      $_SESSION['tipuser'] = $row['tipuser'];
+      $_SESSION['activo'] = $row['activo'];
+      // end Login
+
       $error['estado']  = 'ok';
       $error['mensaje'] = 'Todo el registro salio bien'; 
      

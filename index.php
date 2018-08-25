@@ -9,7 +9,7 @@
 
 		<!-- contenedor principal-->
 		<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
-			<h1 class="bd-title" id="content">WolfTim Corporation S.A</h1>
+			<h1 class="bd-title" id="content">WolfsTim Corporation S.A</h1>
 			<p class="bd-lead">Ha sido fundado para mejorar la calidad de vida de las familias. Por
 				ello, todos los miembros de la organización deberán aplicar la mejora continua de manera responsable y
 				con valores, para alcanzar los objetivos a todo nivel.

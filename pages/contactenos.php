@@ -20,7 +20,10 @@
 
 			<h1 class="bd-title">Contactenos</h1>
 			<p class="bd-lead">
-				contenido
+				<strong>Nombre :</strong> Abraham Moises Linares O. <br>
+				<strong>Correo :</strong> elnaufrago2009@gmail.com <br>
+				<strong>movistar :</strong> +51 952631806 <br>
+				<strong>Watsapt :</strong> +51 952631806
 			</p>
 
 		</main>

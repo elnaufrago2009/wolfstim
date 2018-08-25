@@ -28,6 +28,14 @@
         </div>
         <form v-on:submit.prevent>
 
+          <!--  Nombres  -->
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Nombre y apellidos</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" name="nombres" v-model="registro.nombres" placeholder="Juan Perez">
+            </div>
+          </div>
+
           <!--  DNI  -->
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">DNI</label>
@@ -55,13 +63,7 @@
             </div>
           </div>
 
-          <!--  Nombres  -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label">Nombre y apellidos</label>
-            <div class="col-sm-6">
-              <input type="text" class="form-control" name="nombres" v-model="registro.nombres" placeholder="Juan Perez">
-            </div>
-          </div>
+          
 
           <!--  Celular  -->
           <div class="form-group row">
@@ -105,7 +107,7 @@
       enviarRegistro: function (registro) {
         axios.post('/registro/procesa_registro.php', registro).then((response) => {
           if (response.data.estado == 'ok'){
-
+            window.location.href = "/admin/";
           }else {
             this.error = true;
             this.message = response.data.mensaje;
