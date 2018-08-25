@@ -112,7 +112,7 @@
 			<h5 class="bd-title pt-4 pb-4">Paquetes Adquiridos</h5>
 			<div class="row">
 				<div class="col-12">
-					<table class="table table-striped table-bordered">
+					<table class="table table-striped table-bordered table-responsive">
 						<tr>
 							<th>#</th>
 							<th>Descripcion</th>
@@ -139,37 +139,37 @@
 				<h5 class="bd-title">Arbol</h5>
 
 				<!-- padre -->
-				<div class="col-12 text-center" v-show="tree.padre_estado=='true'">
+				<div class="col-md-12 col-12 text-center" v-show="tree.padre_estado=='true'">
 					{{tree.padre_nombre}} (Padre) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Tu -->
-				<div class="col-12 text-center" v-show="tree.tu_estado=='true'">
+				<div class="col-md-12 col-12 text-center" v-show="tree.tu_estado=='true'">
 					{{tree.tu_nombre}} (Tu) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Hijo 01 -->
-				<div class="col-3 text-center" v-show="tree.hijo1_estado=='true'">
+				<div class="col-12 col-md-3 text-center" v-show="tree.hijo1_estado=='true'">
 					{{tree.hijo1_nombre}} (Hijo 1) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Hijo 02 -->
-				<div class="col-3 text-center" v-show="tree.hijo2_estado=='true'">
+				<div class="col-12 col-md-3 text-center" v-show="tree.hijo2_estado=='true'">
 					{{tree.hijo2_nombre}} (Hijo 2) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Hijo 03 -->
-				<div class="col-3 text-center" v-show="tree.hijo3_estado=='true'">
+				<div class="col-12 col-md-3 text-center" v-show="tree.hijo3_estado=='true'">
 					{{tree.hijo3_nombre}} (Hijo 3) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Hijo 04 -->
-				<div class="col-3 text-center" v-show="tree.hijo4_estado=='true'">
+				<div class="col-12 col-md-3 text-center" v-show="tree.hijo4_estado=='true'">
 					 {{tree.hijo4_nombre}} (Hijo 4) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120" v-show="tree.hijo4_estado=='true'">
 				</div>
