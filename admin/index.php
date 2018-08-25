@@ -247,6 +247,8 @@
           console.log(response.data);
           if (response.data == true) {
             window.location.href = "/admin/";
+          }else if (response.data == false) {
+          	window.location.href = "/admin/";
           }
               
         });        

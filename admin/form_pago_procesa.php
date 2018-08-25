@@ -25,13 +25,17 @@
   $packid = $info_pending['pack_id'];
 
 
-
-  $sql_updated = "UPDATE user_pack SET estado=1, pago_operacion='$codigo', pago_descripcion='$descripcion' WHERE pack_id=$packid and user_id=$userid and created='$created'";
-  if (mysqli_query($conn, $sql_updated)) {
-    echo "true";
-  } else {
-    echo $conn->error;
+  if (strlen($codigo) > 3) {
+    $sql_updated = "UPDATE user_pack SET estado=1, pago_operacion='$codigo', pago_descripcion='$descripcion' WHERE pack_id=$packid and user_id=$userid and created='$created'";
+    if (mysqli_query($conn, $sql_updated)) {
+      echo "true";
+    } else {
+      echo $conn->error;
+    }  
+  }else{
+    echo 'false';
   }
+  
 
 
   // cierra la conexion
