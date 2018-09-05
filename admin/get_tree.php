@@ -8,15 +8,13 @@
 
 	//consulta
 	$sql_tree = "
-	select 
-	case when (padre.dni = 0) then 'false' else 'true' end padre_estado, SUBSTR(padre.nombre,1,20) padre_nombre,
+	select	
 	case when (tu.dni != 0) then 'true' else 'false' end tu_estado, SUBSTR(tu.nombre,1,20) tu_nombre,
 	case when (hijo1.dni != 0) then 'true' else 'false' end hijo1_estado, SUBSTR(hijo1.nombre,1,14) hijo1_nombre,
 	case when (hijo2.dni != 0) then 'true' else 'false' end hijo2_estado, SUBSTR(hijo2.nombre,1,14) hijo2_nombre,
 	case when (hijo3.dni != 0) then 'true' else 'false' end hijo3_estado, SUBSTR(hijo3.nombre,1,14) hijo3_nombre,
 	case when (hijo4.dni != 0) then 'true' else 'false' end hijo4_estado, SUBSTR(hijo4.nombre,1,14) hijo4_nomb
-	from usuarios tu
-	left join usuarios padre on padre.dni = tu.arbol_padre
+	from usuarios tu	
 	left join usuarios hijo1 on hijo1.dni = tu.arbol_hijo1
 	left join usuarios hijo2 on hijo2.dni = tu.arbol_hijo2
 	left join usuarios hijo3 on hijo3.dni = tu.arbol_hijo3

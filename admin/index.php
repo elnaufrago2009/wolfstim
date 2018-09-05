@@ -82,7 +82,7 @@
 			      <div class="modal-footer">
 			      	<button type="button" v-show="guardar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			        <button type="button" v-show="!guardar" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
-			        <button type="button" v-show="!guardar" class="btn btn-primary">Cerrar</button>
+			        <button type="button" v-show="!guardar" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 			      </div>			      
 			    </div>
 			  </div>
@@ -136,13 +136,7 @@
 
 			<!-- Arbol -->
 			<div class="row">
-				<h5 class="bd-title">Arbol</h5>
-
-				<!-- padre -->
-				<div class="col-md-12 col-12 text-center" v-show="tree.padre_estado=='true'">
-					{{tree.padre_nombre}} (Padre) <br>
-					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
-				</div>
+				<h5 class="col-12 bd-title">Arbol</h5>
 
 				<!-- Tu -->
 				<div class="col-md-12 col-12 text-center" v-show="tree.tu_estado=='true'">
