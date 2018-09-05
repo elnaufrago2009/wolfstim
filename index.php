@@ -8,7 +8,9 @@
         <img src="/assets/img/familia.png" class="img-fluid mb-3 mb-md-0" alt="">
       </div>
       <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
-        <h1 class="mb-3 bd-text-purple-bright">Wolfstim S.A.C</h1>
+        <h1 class="mb-3 bd-text-purple-bright">
+          <img src="/assets/img/logos/logo-sub-header-1.jpg" class="img-fluid">
+        </h1>
         <p class="lead">
           Buscamos mejorar la calidad de vida de las personas y alcanzar la libertad financiera e independencia  laboral.
         </p>

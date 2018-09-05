@@ -17,16 +17,14 @@
 <!-- Cabezera Header 
 ----------------------------------------------->
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-	<a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Bootstrap">
-		<i class="fas fa-users" style="font-size: 30px;"></i>
+
+	<a class="navbar-brand mr-0 mr-md-2 pt-0" href="/" aria-label="Bootstrap">
+    <img src="/assets/img/logos/logo-header-1.png" width="107" height="32" class="d-inline-block align-top" alt="">
 	</a>
 
 	<!-- Parte izquierda -->
 	<div class="navbar-nav-scroll">
 		<ul class="navbar-nav bd-navbar-nav flex-row">
-			<li class="nav-item">
-				<a class="nav-link active" href="/">WolfsTim</a>
-			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="/pages/faqs.php">Preguntas Frecuentes</a>
 			</li>
