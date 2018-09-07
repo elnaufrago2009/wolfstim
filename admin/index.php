@@ -1,43 +1,22 @@
 <?php
-
 	// importar header 
 	include('../layouts/header.php');
 
-
 	// validar Session
 	include('../validar_session.php');
-
 ?>
 
 
 <div class="container-fluid" id="app">
-	
 	<div class="row flex-xl-nowrap">
-
-		<?php 
-			
-			// importar sidebar
-
-			include('../layouts/sidebar.php');
-
-		?>
-
-
+		<?php  include('../layouts/sidebar.php'); ?>
 		<!-- menu derecho-->
-
 		<?php include '../layouts/sidebar_derecho.php' ?>
-
-
 		<!-- contenido del medio  -->
-
 		<main class="col-12 col-md-9 col-xl-8 py-md-4 pl-md-5 bd-content">
 
 			<!-- Lista de paquetes -->
-
 			<h4 class="bd-title pb-4">Lista de Paquetes</h4>
-
-
-
 			<div class="card-group">
 			  <div class="card" v-for="(pack,index) in packs">
 			    <img class="card-img-top" :src="'../assets/img/' + pack.image" alt="Card image cap">
@@ -53,7 +32,6 @@
 			  </div>			  
 			</div>
 
-
 			<!-- Modal -->
 			<div class="modal fade" id="modal_add_pack" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
@@ -61,13 +39,13 @@
 			      <div class="modal-header">
 			        <h5 class="modal-title" id="exampleModalLabel" v-show="guardar">Tienes un paquete pendiente por pagar.</h5>
 			        <h5 class="modal-title" id="exampleModalLabel" v-show="!guardar">Estas Seguro que quieres Adquirir?</h5>
-			        
+
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
 			      </div>
 			      <div class="modal-body">
-			      	
+
 			        <h2>{{packsend.descripcion}} <small>S./ {{packsend.costo}}</small> </h2>
 			        <p v-if="packsend.image">
 			        	<img class="card-img-top" v-bind:src="'../assets/img/'+packsend.image" height="200" >
@@ -83,15 +61,13 @@
 			      	<button type="button" v-show="guardar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 			        <button type="button" v-show="!guardar" @click="getOrder(packsend.id,<?php echo $_SESSION['userid'] ?>)" class="btn btn-secondary" data-dismiss="modal">Pedir</button>
 			        <button type="button" v-show="!guardar" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-			      </div>			      
+			      </div>
 			    </div>
 			  </div>
 			</div>
 
-
 			<!-- Formulacio de envio de pago -->
 			<h5 class="bd-title pt-3" v-show="formInforma">Informar Pago</h5>
-
 			<form v-show="formInforma" v-on:submit.prevent>
 				<div class="form-group row">          
 	          <div class="col-sm-3">
@@ -108,31 +84,41 @@
 
 
 			<!-- Lista de paquetes comprados-->
+      <div class="row">
+        <div class="col-12">
+          <h5 class="bd-title pt-4 pb-4">Paquetes Adquiridos</h5>
+        </div>
 
-			<h5 class="bd-title pt-4 pb-4">Paquetes Adquiridos</h5>
-			<div class="row">
-				<div class="col-12">
-					<table class="table table-striped table-bordered table-responsive">
-						<tr>
-							<th>#</th>
-							<th>Descripcion</th>
-							<th>Costo</th>
-							<th>Fecha Pedido</th>
-							<th>Fecha Pago</th>
-							<th>Estado</th>
-						</tr>
-						<tr v-for="(userPack,index) in user_packs">
-							<td>{{index}}</td>
-							<td>{{userPack.descripcion}}</td>
-							<td>{{userPack.costo}} S/.</td>
-							<td>{{userPack.created}} </td>
-							<td>{{userPack.updated}} </td>
-							<td>Pendiente</td>
-						</tr>						
-					</table>
-				</div>
-			</div>
-						
+      <!-- tabla -->
+      <div class="col-12">
+        <table class=" table table-bordered table-striped table-responsive-md table-sm">
+          <tr>
+            <th>#</th>
+            <th>Descripcion</th>
+            <th>Costo</th>
+            <th>Fecha Genera</th>
+            <th>Fecha informa</th>
+            <th>Fecha Acepta</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+          <tr v-for="(userPack,index) in user_packs">
+            <td>{{index}}</td>
+            <td>{{userPack.descripcion}}</td>
+            <td>{{userPack.costo}} S/.</td>
+            <td>{{userPack.created}} </td>
+            <td>{{userPack.fecha_envio_pago}} </td>
+            <td></td>
+            <td>Pendiente</td>
+            <td>
+              <button class="btn btn-sm btn-secondary" v-show="userPack.estado == 0" @click="deleteOrder(userPack.id)">Eliminar</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      </div>
+
+
 
 			<!-- Arbol -->
 			<div class="row">
@@ -219,9 +205,9 @@
       getOrder: function(pack_id,user_id){
         axios.get('./get_order_pro.php?pack_id=' + pack_id + '&user_id=' + user_id).then((response)=>{
           if (response.data == 'ok') {
-            window.location.href = "/admin/";
+            window.location.href = '/admin/';
           }
-          //console.log(response.data);
+          console.log(response.data);
         });
       },
       getUserOrders: function(){
@@ -244,7 +230,7 @@
           }else if (response.data == false) {
           	window.location.href = "/admin/";
           }
-              
+          console.log(response.data);
         });        
       },
       get_tree: function(user_id){
@@ -252,6 +238,14 @@
       		this.tree = response.data;
       		//console.log(this.tree);
       	});
+      },
+      deleteOrder: function(id) {
+        axios.post('delete_order.php', id).then(response => {
+          if (response.data == 'ok'){
+            window.location.href = '/admin/';
+          }
+          console.log(response.data);
+        });
       }
     },    
     created: function(){

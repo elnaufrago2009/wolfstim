@@ -25,7 +25,8 @@ include('../validar_session.php');
             <th>Cliente</th>
             <th>Pack</th>
             <th>Operacion</th>
-            <th>Fecha</th>
+            <th>Fecha Pedido</th>
+            <th>Fecha Informa</th>
             <th>Acciones</th>
           </tr>
           <tr v-for="(pedido,index) in pedidos">
@@ -34,6 +35,7 @@ include('../validar_session.php');
             <td>{{pedido.descripcion}}</td>
             <td>{{pedido.pago_operacion}}</td>
             <td>{{pedido.created}}</td>
+            <td>{{pedido.fecha_envio_pago}}</td>
             <td>
               <button 
 								type="button" 

@@ -23,10 +23,11 @@
   $info_pending = $conn->query($sql_info_pending)->fetch_array(MYSQLI_ASSOC);
   $created = $info_pending['created'];
   $packid = $info_pending['pack_id'];
+  $fecha_envio_pago = date('Y-m-d');
 
 
   if (strlen($codigo) > 3) {
-    $sql_updated = "UPDATE user_pack SET estado=1, pago_operacion='$codigo', pago_descripcion='$descripcion' WHERE pack_id=$packid and user_id=$userid and created='$created'";
+    $sql_updated = "UPDATE user_pack SET estado=1, pago_operacion='$codigo', pago_descripcion='$descripcion', fecha_envio_pago='$fecha_envio_pago' WHERE pack_id=$packid and user_id=$userid and created='$created'";
     if (mysqli_query($conn, $sql_updated)) {
       echo "true";
     } else {

@@ -37,7 +37,9 @@
     // entonces estado_count > 0 entonces es antiguo no es primera vez     
     $completado = $conn->query("SELECT count(*) estado_count from user_pack where user_id=$user_id and estado in (2)")->fetch_array(MYSQLI_ASSOC);
 
+    // si tiene pedidos anteriores entra pero no pendientes
     if ($completado['estado_count'] > 0) {
+      //el ultimo paquete saca la fecha
       $antiguo = $conn->query("SELECT * from user_pack where user_id=$user_id and estado in (2) order by id desc limit 1")->fetch_array(MYSQLI_ASSOC);      
       $fecha_pack = strtotime($antiguo['updated']); // convierte a segundos en un referente
       $fecha_actual = strtotime(date('Y-m-d')); // convierte a segundos

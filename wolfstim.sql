@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 01-09-2018 a las 18:50:16
--- Versión del servidor: 5.7.23-0ubuntu0.18.04.1
--- Versión de PHP: 7.2.7-0ubuntu0.18.04.2
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 07-09-2018 a las 21:39:42
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -85,6 +87,7 @@ CREATE TABLE `user_pack` (
   `pack_id` int(2) NOT NULL,
   `user_id` int(11) NOT NULL,
   `estado` int(1) NOT NULL DEFAULT '0' COMMENT '0 pedido generado, 1 operacion avisada, 2 aceptado, 3 anulado',
+  `tipo` varchar(1) NOT NULL DEFAULT '0' COMMENT '0: ningun estado 1: estado BONO DELF 2: Extra',
   `created` date DEFAULT NULL,
   `fecha_envio_pago` date DEFAULT NULL,
   `updated` date DEFAULT NULL,
@@ -96,16 +99,16 @@ CREATE TABLE `user_pack` (
 -- Volcado de datos para la tabla `user_pack`
 --
 
-INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `created`, `fecha_envio_pago`, `updated`, `pago_operacion`, `pago_descripcion`) VALUES
-(7, 1, 31, 2, '2018-05-01', '0000-00-00', '2018-05-01', '', ''),
-(8, 3, 31, 2, '2018-02-01', '0000-00-00', '2018-02-10', '', ''),
-(9, 3, 31, 2, '2018-06-05', '0000-00-00', '2018-06-05', '', ''),
-(10, 2, 31, 2, '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago'),
-(12, 2, 33, 2, '2018-08-19', NULL, NULL, 'D457814', 'Por favor revise mi pago'),
-(13, 1, 41, 2, '2018-08-24', NULL, NULL, 'D4787454', 'Por favor revise mi pago'),
-(14, 3, 42, 2, '2018-08-25', NULL, NULL, 'D4784521', 'Por favor revise mi pago'),
-(15, 1, 31, 1, '2018-08-25', NULL, NULL, 'D15478157', 'Por favor revise mi pago'),
-(16, 3, 43, 2, '2018-08-25', NULL, NULL, 'D479452747', 'Por favor revise mi pago');
+INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `tipo`, `created`, `fecha_envio_pago`, `updated`, `pago_operacion`, `pago_descripcion`) VALUES
+(7, 1, 31, 1, '0', '2018-05-01', '0000-00-00', '2018-05-01', 'dasdad', 'Por favor revise mi pago'),
+(8, 3, 31, 2, '0', '2018-02-01', '0000-00-00', '2018-02-10', '', ''),
+(9, 3, 31, 2, '0', '2018-06-05', '0000-00-00', '2018-06-05', '', ''),
+(10, 2, 31, 2, '0', '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago'),
+(12, 2, 33, 2, '0', '2018-08-19', NULL, NULL, 'D457814', 'Por favor revise mi pago'),
+(13, 1, 41, 2, '0', '2018-08-24', NULL, NULL, 'D4787454', 'Por favor revise mi pago'),
+(14, 3, 42, 2, '0', '2018-08-25', NULL, NULL, 'D4784521', 'Por favor revise mi pago'),
+(22, 1, 31, 2, '0', '2018-09-07', NULL, NULL, 'D014578', 'Por favor revise mi pago'),
+(23, 1, 31, 1, '0', '2018-09-06', '2018-09-07', NULL, 'dasdsad', 'Por favor revise mi pago');
 
 -- --------------------------------------------------------
 
@@ -133,19 +136,19 @@ CREATE TABLE `usuarios` (
   `arbol_hijo3` varchar(12) NOT NULL DEFAULT '0',
   `arbol_hijo4` varchar(12) NOT NULL DEFAULT '0',
   `arbol_nivel` int(2) NOT NULL DEFAULT '0',
-  `activo` int(2) NOT NULL DEFAULT '0' COMMENT 'se activa junto con el arbol_padre pero este es un indicador fijo, por que puede que sea que le demos de baja y eso cambiaria las reglas de usar solo un campo.'
+  `activo` int(2) NOT NULL DEFAULT '0' COMMENT 'se activa junto con el arbol_padre pero este es un indicador fijo, por que puede que sea que le demos de baja y eso cambiaria las reglas de usar solo un campo.',
+  `acumulado` varchar(11) NOT NULL DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`) VALUES
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '42851632', '06921787', '08193726', '0', 0, 0),
-(33, 'grover ieon', '42851632', '123', 1, '952631806', 'leodepaydiamond@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '12456789', '0', '0', '0', 0, 1),
-(41, 'nancy barrenechea', '06921787', '123', 1, '952631806', 'nancybarrenechea@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1),
-(42, 'BUSTOS SACA Rory Erick Pedro', '08193726', '123', 1, '952631806', '', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1),
-(43, 'jonas rios', '12456789', '123', 1, '123456', 'correo@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42851632', '0', '0', '0', '0', 0, 1);
+INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`, `acumulado`) VALUES
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '42851632', '06921787', '08193726', '0', 0, 1, '0.00'),
+(33, 'grover ieon', '42851632', '123', 1, '952631806', 'leodepaydiamond@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1, '0.00'),
+(41, 'nancy barrenechea', '06921787', '123', 1, '952631806', 'nancybarrenechea@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1, '0.00'),
+(42, 'BUSTOS SACA Rory Erick Pedro', '08193726', '123', 1, '952631806', '', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1, '0.00');
 
 --
 -- Índices para tablas volcadas
@@ -184,21 +187,26 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `detalle_packs`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT de la tabla `packs`
 --
 ALTER TABLE `packs`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `user_pack`
 --
 ALTER TABLE `user_pack`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
