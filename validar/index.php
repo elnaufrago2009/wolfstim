@@ -35,12 +35,12 @@ include('../validar_session.php');
             <td>{{pedido.descripcion}}</td>
             <td>{{pedido.pago_operacion}}</td>
             <td>{{pedido.created}}</td>
-            <td>{{pedido.fecha_envio_pago}} </td>
+            <td>{{pedido.fecha_envio_pago}} {{pedido.cantidad}}</td>
             <td>
               <button 
 								type="button" 
 								class="btn btn-primary btn-sm" 
-								@click="get_modal(pedido.id,pedido.user_id)">Confirmar
+								@click="get_modal(pedido.id,pedido.user_id,pedido.cantidad)">Confirmar
 							</button>
             </td>
           </tr>
@@ -58,7 +58,7 @@ include('../validar_session.php');
                 <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button 
                   type="button" 
-                  @click="verificar_pago(pedidoid,user_id)"
+                  @click="verificar_pago(pedidoid,user_id,cantidad)"
                   class="btn btn-secondary" 
                   data-dismiss="modal">Verificar Pago
                  </button>
@@ -66,17 +66,10 @@ include('../validar_session.php');
             </div>
           </div>
         </div>
-
-
       </main>
     </div>
 
   </div>
-
-
-  
-
-
   <script>
     var app = new Vue({
       el: '#app',
@@ -84,7 +77,8 @@ include('../validar_session.php');
         mensaje: 'moises',
         pedidos: {},
         pedidoid: '',
-        user_id: ''
+        user_id: '',
+        cantidad: ''
       },
       methods: {
         get_pagos_list: function () {
@@ -92,19 +86,19 @@ include('../validar_session.php');
             this.pedidos = response.data;            
           });
         },
-        get_modal: function(pedido,user_id){
+        get_modal: function(pedido,user_id,cantidad){
           this.pedidoid = pedido;
           this.user_id = user_id;
-          $("#modal_pago").modal('show');          
+          this.cantidad = cantidad;
+          $("#modal_pago").modal('show');
+
         },
-        verificar_pago: function(pedido,user_id){
-          axios.get('./confirmar_pago.php?pedido_id=' + pedido +'&user_id=' + user_id).then(response => {
+        verificar_pago: function(pedido,user_id,cantidad){
+          axios.get('./confirmar_pago.php?pedido_id=' + pedido +'&user_id=' + user_id + '&cantidad=' + cantidad).then(response => {
             if (response.data == 'ok') {
               window.location.href = "/validar/";
             }
-            //console.log(response.data);
           });
-	       
         }
       },
       created: function(){
@@ -113,11 +107,4 @@ include('../validar_session.php');
       
     });
   </script>
-
-
-<?php
-
-// importar footer
-include('../layouts/footer.php');
-
-?>
+<?php include('../layouts/footer.php'); ?>
