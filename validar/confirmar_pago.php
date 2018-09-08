@@ -4,12 +4,14 @@
 	include '../conn.php';
 
 	// paramtros get
-	$id = $_GET['pedido_id'];	
+	$id = $_GET['pedido_id'];
+	$user_id = $_GET['user_id'];
 
 	// actualiza el estado del pedido paquete
 	$updated = "UPDATE user_pack set estado=2 WHERE id=$id";
 	mysqli_query($conn,$updated);
 
+	// cantidad de
 	$sql_usuario_primero = "select count(*) cantidad_unico from user_pack a join user_pack b on b.user_id = a.user_id where a.id=$id";
 	$sql_usuario_primero = $conn->query($sql_usuario_primero)->fetch_array(MYSQLI_ASSOC);
 

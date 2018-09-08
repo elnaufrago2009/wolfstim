@@ -91,25 +91,21 @@
 
       <!-- tabla -->
       <div class="col-12">
-        <table class=" table table-bordered table-striped table-responsive-md table-sm">
+        <table class=" table table-bordered table-responsive-md table-sm table-hover">
           <tr>
-            <th>#</th>
             <th>Descripcion</th>
             <th>Costo</th>
             <th>Fecha Genera</th>
             <th>Fecha informa</th>
             <th>Fecha Acepta</th>
-            <th>Estado</th>
             <th>Acciones</th>
           </tr>
           <tr v-for="(userPack,index) in user_packs">
-            <td>{{index}}</td>
             <td>{{userPack.descripcion}}</td>
             <td>{{userPack.costo}} S/.</td>
             <td>{{userPack.created}} </td>
             <td>{{userPack.fecha_envio_pago}} </td>
             <td></td>
-            <td>Pendiente</td>
             <td>
               <button class="btn btn-sm btn-secondary" v-show="userPack.estado == 0" @click="deleteOrder(userPack.id)">Eliminar</button>
             </td>

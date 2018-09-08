@@ -35,12 +35,12 @@ include('../validar_session.php');
             <td>{{pedido.descripcion}}</td>
             <td>{{pedido.pago_operacion}}</td>
             <td>{{pedido.created}}</td>
-            <td>{{pedido.fecha_envio_pago}}</td>
+            <td>{{pedido.fecha_envio_pago}} </td>
             <td>
               <button 
 								type="button" 
 								class="btn btn-primary btn-sm" 
-								@click="get_modal(pedido.id)">Confirmar
+								@click="get_modal(pedido.id,pedido.user_id)">Confirmar
 							</button>
             </td>
           </tr>
@@ -58,7 +58,7 @@ include('../validar_session.php');
                 <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button 
                   type="button" 
-                  @click="verificar_pago(pedidoid)"  
+                  @click="verificar_pago(pedidoid,user_id)"
                   class="btn btn-secondary" 
                   data-dismiss="modal">Verificar Pago
                  </button>
@@ -83,7 +83,8 @@ include('../validar_session.php');
       data: {
         mensaje: 'moises',
         pedidos: {},
-        pedidoid: 'a'        
+        pedidoid: '',
+        user_id: ''
       },
       methods: {
         get_pagos_list: function () {
@@ -91,12 +92,13 @@ include('../validar_session.php');
             this.pedidos = response.data;            
           });
         },
-        get_modal: function(pedido){
+        get_modal: function(pedido,user_id){
           this.pedidoid = pedido;
+          this.user_id = user_id;
           $("#modal_pago").modal('show');          
         },
-        verificar_pago: function(pedido){
-          axios.get('./confirmar_pago.php?pedido_id=' + pedido).then(response => {
+        verificar_pago: function(pedido,user_id){
+          axios.get('./confirmar_pago.php?pedido_id=' + pedido +'&user_id=' + user_id).then(response => {
             if (response.data == 'ok') {
               window.location.href = "/validar/";
             }
