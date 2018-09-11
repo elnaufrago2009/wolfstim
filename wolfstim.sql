@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-09-2018 a las 21:39:42
+-- Tiempo de generación: 12-09-2018 a las 00:27:13
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -100,15 +100,7 @@ CREATE TABLE `user_pack` (
 --
 
 INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `tipo`, `created`, `fecha_envio_pago`, `updated`, `pago_operacion`, `pago_descripcion`) VALUES
-(7, 1, 31, 1, '0', '2018-05-01', '0000-00-00', '2018-05-01', 'dasdad', 'Por favor revise mi pago'),
-(8, 3, 31, 2, '0', '2018-02-01', '0000-00-00', '2018-02-10', '', ''),
-(9, 3, 31, 2, '0', '2018-06-05', '0000-00-00', '2018-06-05', '', ''),
-(10, 2, 31, 2, '0', '2018-07-30', '0000-00-00', '0000-00-00', 'D04587ERFG', 'Por favor revise mi pago'),
-(12, 2, 33, 2, '0', '2018-08-19', NULL, NULL, 'D457814', 'Por favor revise mi pago'),
-(13, 1, 41, 2, '0', '2018-08-24', NULL, NULL, 'D4787454', 'Por favor revise mi pago'),
-(14, 3, 42, 2, '0', '2018-08-25', NULL, NULL, 'D4784521', 'Por favor revise mi pago'),
-(22, 1, 31, 2, '0', '2018-09-07', NULL, NULL, 'D014578', 'Por favor revise mi pago'),
-(23, 1, 31, 1, '0', '2018-09-06', '2018-09-07', NULL, 'dasdsad', 'Por favor revise mi pago');
+(7, 1, 31, 2, '0', '2018-05-01', '0000-00-00', '2018-05-01', 'dasdad', 'Por favor revise mi pago');
 
 -- --------------------------------------------------------
 
@@ -130,6 +122,7 @@ CREATE TABLE `usuarios` (
   `det_pago_cuenta` varchar(40) DEFAULT NULL,
   `det_pago_nombre` varchar(100) DEFAULT NULL,
   `det_pago_dni` varchar(12) DEFAULT NULL,
+  `arbol_patrocinador` varchar(12) DEFAULT NULL,
   `arbol_padre` varchar(12) NOT NULL COMMENT 'id padre se activa solo cuando el cliente hace una compra de un paquete por primera vez',
   `arbol_hijo1` varchar(12) NOT NULL DEFAULT '0',
   `arbol_hijo2` varchar(12) NOT NULL DEFAULT '0',
@@ -144,11 +137,8 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`, `acumulado`) VALUES
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '42851632', '06921787', '08193726', '0', 0, 1, '0.00'),
-(33, 'grover ieon', '42851632', '123', 1, '952631806', 'leodepaydiamond@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1, '0.00'),
-(41, 'nancy barrenechea', '06921787', '123', 1, '952631806', 'nancybarrenechea@hotmail.com', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1, '0.00'),
-(42, 'BUSTOS SACA Rory Erick Pedro', '08193726', '123', 1, '952631806', '', NULL, NULL, NULL, NULL, NULL, NULL, '42516253', '0', '0', '0', '0', 0, 1, '0.00');
+INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_patrocinador`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`, `acumulado`) VALUES
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '31', '47', '0', '0', '0', 3, 1, '160.00');
 
 --
 -- Índices para tablas volcadas
@@ -198,13 +188,13 @@ ALTER TABLE `packs`
 -- AUTO_INCREMENT de la tabla `user_pack`
 --
 ALTER TABLE `user_pack`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

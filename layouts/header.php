@@ -32,9 +32,24 @@
 	<!-- Parte izquierda -->
 	<div class="navbar-nav-scroll">
 		<ul class="navbar-nav bd-navbar-nav flex-row">
+      <?php if ($_SERVER['PHP_SELF'] != '/index.php'){ ?>
+        <li class="nav-item d-md-none">
+          <span class="nav-link" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">Menu</span>
+        </li>
+      <?php } ?>
+      <?php if (isset($_SESSION['doc'])) { ?>
       <li class="nav-item d-md-none">
-        <span class="nav-link" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">Menu</span>
+        <a class="nav-link" href="/admin/">Admin</a>
       </li>
+      <?php } else { ?>
+      <li class="nav-item d-md-none">
+        <a class="nav-link" href="/pages/faqs.php">Registro</a>
+      </li>
+      <li class="nav-item d-md-none">
+        <a class="nav-link" href="/login/login.php">Login</a>
+      </li>
+      <?php } ?>
+
 			<li class="nav-item">
 				<a class="nav-link" href="/pages/faqs.php">Preguntas Frecuentes</a>
 			</li>
