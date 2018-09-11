@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,14 +18,23 @@
 <!-- Cabezera Header 
 ----------------------------------------------->
 <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
-
-	<a class="navbar-brand mr-0 mr-md-2 pt-0" href="/" aria-label="Bootstrap">
+  <?php
+    if (isset($_SESSION['doc'])){
+      $href_logo = '/admin/';
+    }else {
+      $href_logo = '/';
+    }
+  ?>
+	<a class="navbar-brand mr-0 mr-md-2 pt-0" href="<?php echo $href_logo ?>" aria-label="Bootstrap">
     <img src="/assets/img/logos/logo-header-1.png" width="107" height="32" class="d-inline-block align-top" alt="">
 	</a>
 
 	<!-- Parte izquierda -->
 	<div class="navbar-nav-scroll">
 		<ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item d-md-none">
+        <span class="nav-link" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">Menu</span>
+      </li>
 			<li class="nav-item">
 				<a class="nav-link" href="/pages/faqs.php">Preguntas Frecuentes</a>
 			</li>
@@ -36,7 +46,7 @@
 			</li>
 		</ul>
 	</div>
-	<?php session_start(); ?>
+
 
 	<!-- Parte derecha  -->
 	<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">

@@ -1,7 +1,7 @@
 <?php
 	
 	// datos de conexion
-  $conn = new mysqli('localhost', 'root', '', 'wolfstim');
+  $conn = new mysqli('localhost', 'root', 'moiseslinar3s', 'wolfstim');
 
 	// error de conexion
 	if ($conn->connect_errno) {

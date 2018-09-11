@@ -15,7 +15,7 @@
 					Siga estos dos pasos: <br>
 					1.- Llenar los campos con datos verdaderos<br>
 					2.- Depositar a la cuenta
-					BCP indicada abajo, Cuenta <code>540-36253686-0-08</code>.
+					BCP indicada abajo, Cuenta <code>00252645402100001001</code>.
 				</p>
 				<hr class="mb-4">
 
@@ -73,11 +73,19 @@
             </div>
           </div>
 
+          <!--  Padre  -->
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">DNI Padre</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" v-model="registro.dni_padre" placeholder="42516258">
+            </div>
+          </div>
+
           <!--  Patrocinador  -->
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">DNI Patrocinador</label>
             <div class="col-sm-3">
-              <input type="text" class="form-control" v-model="registro.dni_patrocinador" placeholder="42516258">
+              <input type="text" class="form-control" v-model="registro.arbol_patrocinador" placeholder="47895219">
             </div>
           </div>
 

@@ -105,7 +105,7 @@
             <td>{{userPack.costo}} S/.</td>
             <td>{{userPack.created}} </td>
             <td>{{userPack.fecha_envio_pago}} </td>
-            <td></td>
+            <td>{{userPack.updated}}</td>
             <td>
               <button class="btn btn-sm btn-secondary" v-show="userPack.estado == 0" @click="deleteOrder(userPack.id)">Eliminar</button>
             </td>

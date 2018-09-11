@@ -5,30 +5,24 @@
         <?php 
 
           if (isset($_SESSION['doc'])) {
-            echo '<img src="/assets/img/user-4.jpg" class="rounded-circle" width="100"><br>
-                  <span class="font-italic">'.$_SESSION['name'].' <br/>  </span><a href="/admin/">Admin';
+            include '../conn.php';
+            $usuario_session = $conn->query("select * from usuarios where id=".$_SESSION['userid'])->fetch_array(MYSQLI_ASSOC);
+            echo '<img src="/assets/img/user_nivel'.$usuario_session['arbol_nivel'].'.png" width="60"><br>
+                  <h3>'.number_format($usuario_session['acumulado'],0,'.','').'<small> S/.</small></h3>
+                  <span class="font-italic">'.$_SESSION['name'].' </span> ';
             if ($_SESSION['activo']=='1') {
-              echo '(Activo)</a>';  
+              echo '(Activo)';
             }else {
-              echo '(Inactivo)</a>';
+              echo '(Inactivo)';
             }
-            
           }else{
-            echo '<img src="/assets/img/user_anonimo.png" class="rounded-circle" width="80" height="80"><br>
-                  <span class="font-italic">Usuario anonimo? <br/>  </span><a href="/registro/">Registro</a> o 
+            echo '<img src="/assets/img/user_nivel.png" width="80" height="80"><br>
+                  <span class="font-italic">Usuario anonimo <br/>  </span><a href="/registro/">Registro</a> o 
                   </span><a href="/login/login.php">Login</a>';
           }
 
         ?>        
-        <button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3 text-right" type="button"
-                data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav"
-                aria-expanded="false" aria-label="Toggle docs navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 30 30" width="30" height="30"
-                 focusable="false"><title>Menu</title>
-                <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                      stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/>
-            </svg>
-        </button>
+
     </div>
 
     <!-- Menu Izquierdo -->

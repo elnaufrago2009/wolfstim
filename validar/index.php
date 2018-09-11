@@ -35,12 +35,12 @@ include('../validar_session.php');
             <td>{{pedido.descripcion}}</td>
             <td>{{pedido.pago_operacion}}</td>
             <td>{{pedido.created}}</td>
-            <td>{{pedido.fecha_envio_pago}} {{pedido.cantidad}}</td>
+            <td>{{pedido.fecha_envio_pago}} {{pedido.pack_id}}</td>
             <td>
               <button 
 								type="button" 
 								class="btn btn-primary btn-sm" 
-								@click="get_modal(pedido.id,pedido.user_id,pedido.cantidad)">Confirmar
+								@click="get_modal(pedido.id,pedido.user_id,pedido.cantidad,pedido.arbol_patrocinador,pedido.arbol_padre,pedido.pack_id)">Confirmar
 							</button>
             </td>
           </tr>
@@ -58,7 +58,7 @@ include('../validar_session.php');
                 <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button 
                   type="button" 
-                  @click="verificar_pago(pedidoid,user_id,cantidad)"
+                  @click="verificar_pago(pedidoid,user_id,cantidad,arbol_patrocinador,arbol_padre,pack_id)"
                   class="btn btn-secondary" 
                   data-dismiss="modal">Verificar Pago
                  </button>
@@ -78,7 +78,10 @@ include('../validar_session.php');
         pedidos: {},
         pedidoid: '',
         user_id: '',
-        cantidad: ''
+        cantidad: '',
+        arbol_patrocinador: '',
+        arbol_padre: '',
+        pack_id: ''
       },
       methods: {
         get_pagos_list: function () {
@@ -86,15 +89,18 @@ include('../validar_session.php');
             this.pedidos = response.data;            
           });
         },
-        get_modal: function(pedido,user_id,cantidad){
+        get_modal: function(pedido,user_id,cantidad,arbol_patrocinador,arbol_padre,pack_id){
           this.pedidoid = pedido;
           this.user_id = user_id;
           this.cantidad = cantidad;
+          this.arbol_patrocinador = arbol_patrocinador;
+          this.arbol_padre = arbol_padre;
+          this.pack_id = pack_id;
           $("#modal_pago").modal('show');
-
         },
-        verificar_pago: function(pedido,user_id,cantidad){
-          axios.get('./confirmar_pago.php?pedido_id=' + pedido +'&user_id=' + user_id + '&cantidad=' + cantidad).then(response => {
+        verificar_pago: function(pedido,user_id,cantidad,arbol_patrocinador,arbol_padre,pack_id){
+          axios.get('./confirmar_pago.php?pedido_id=' + pedido +'&user_id=' + user_id + '&cantidad=' + cantidad + '&arbol_patrocinador=' + arbol_patrocinador + '&arbol_padre=' + arbol_padre + '&pack_id=' + pack_id).then(response => {
+            console.log(response.data);
             if (response.data == 'ok') {
               window.location.href = "/validar/";
             }
