@@ -26,7 +26,7 @@
     }
   ?>
 	<a class="navbar-brand mr-0 mr-md-2 pt-0" href="<?php echo $href_logo ?>" aria-label="Bootstrap">
-    <img src="/assets/img/logos/logo-header-1.png" width="107" height="32" class="d-inline-block align-top" alt="">
+    Lineysoft
 	</a>
 
 	<!-- Parte izquierda -->

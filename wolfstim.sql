@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2018 a las 00:27:13
+-- Tiempo de generación: 12-09-2018 a las 00:37:39
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -138,7 +138,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_patrocinador`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`, `acumulado`) VALUES
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '31', '47', '0', '0', '0', 3, 1, '160.00');
+(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '31', '47', '0', '0', '0', 3, 1, '0.00');
 
 --
 -- Índices para tablas volcadas

@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
         <h1 class="mb-3 bd-text-purple-bright">
-          <img src="/assets/img/logos/logo-sub-header-1.jpg" class="img-fluid">
+          Lineysoft <small>.com</small>
         </h1>
         <p class="lead">
           Buscamos mejorar la calidad de vida de las personas y alcanzar la libertad financiera e independencia  laboral.
@@ -139,7 +139,7 @@
       <li><a href="/pages/faqs.php">Preguntas Frecuentes</a></li>
     </ul>
     <p>
-      Wolfstim, busca mejorar la calidad de vida, alcanzar la libertad financiera e independencia laboral.
+      Lineysoft, busca mejorar la calidad de vida, alcanzar la libertad financiera e independencia laboral.
     </p>
     <p>
       Consolidando el desarrollo sostenible de nuestros clientes y de la organizacion.

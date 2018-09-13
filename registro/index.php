@@ -15,7 +15,8 @@
 					Siga estos dos pasos: <br>
 					1.- Llenar los campos con datos verdaderos<br>
 					2.- Depositar a la cuenta
-					BCP indicada abajo, Cuenta <code>00252645402100001001</code>.
+					BCP indicada abajo, <code>Cuenta 540-36253686-0-08</code>. <br>
+          <code>Nombre: Abraham Moises Linares Oscco</code>
 				</p>
 				<hr class="mb-4">
 

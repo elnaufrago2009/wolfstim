@@ -46,7 +46,7 @@
       <?php } ?>
       
       <div class="bd-toc-item active">          
-        <a class="bd-toc-link" href="/">Wolfstim</a>
+        <a class="bd-toc-link" href="/">Lineysoft</a>
           <ul class="nav bd-sidenav">
               <li><a href="/pages/politica-organizacional.php">Politica Organizacional</a></li>
               <li><a href="/pages/mision-vision.php">Mision y Vision</a></li>
