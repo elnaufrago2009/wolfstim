@@ -118,35 +118,36 @@
 
 			<!-- Arbol -->
 			<div class="row">
-				<h5 class="col-12 bd-title">Arbol</h5>
+				<h5 class="col-12 bd-title">Arbol <small style="cursor: pointer" @click="get_tree(<?php echo $_SESSION['userid'] ?>)">Inicio</small></h5>
+
 
 				<!-- Tu -->
 				<div class="col-md-12 col-12 text-center" v-show="tree.tu_estado=='true'">
-					{{tree.tu_nombre}} (Tu) <br>
-					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
+					{{tree.tu_nombre}} ({{tree.tu_activo}}) <br>
+          <img src="/assets/img/tree-user2.png"  @click="get_tree(tree.tu_id)" alt="" class="" width="100">
 				</div>
 
 				<!-- Hijo 01 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo1_estado=='true'">
-					{{tree.hijo1_nombre}} (Hijo 1) <br>
-					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
+					{{tree.hijo1_nombre}} ({{tree.hijo1_activo}}) <br>
+					<img src="/assets/img/tree-user2.png" @click="get_tree(tree.hijo1_id)" alt="" class="" width="100" style="cursor: pointer">
 				</div>
 
 				<!-- Hijo 02 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo2_estado=='true'">
-					{{tree.hijo2_nombre}} (Hijo 2) <br>
+					{{tree.hijo2_nombre}} ({{tree.hijo2_activo}}) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Hijo 03 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo3_estado=='true'">
-					{{tree.hijo3_nombre}} (Hijo 3) <br>
+					{{tree.hijo3_nombre}} ({{tree.hijo3_activo}}) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
 				</div>
 
 				<!-- Hijo 04 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo4_estado=='true'">
-					 {{tree.hijo4_nombre}} (Hijo 4) <br>
+					 {{tree.hijo4_nombre}} ({{tree.hijo4_activo}}) <br>
 					<img src="/assets/img/tree-user2.png" alt="" class="" width="120" v-show="tree.hijo4_estado=='true'">
 				</div>
 
@@ -226,13 +227,13 @@
           }else if (response.data == false) {
           	window.location.href = "/admin/";
           }
-          console.log(response.data);
+          //console.log(response.data);
         });        
       },
       get_tree: function(user_id){
-      	axios.get('get_tree.php?user_id=<?php echo $_SESSION['userid'] ?>').then(response => {
+      	axios.get('get_tree.php?user_id=' + user_id).then(response => {
       		this.tree = response.data;
-      		//console.log(this.tree);
+      		//console.log(this.tree.tu_nombre);
       	});
       },
       deleteOrder: function(id) {
@@ -248,7 +249,7 @@
       this.getPacks();
       this.getUserOrders();
       this.getFormSend();
-      this.get_tree();
+      this.get_tree(<?php echo $_SESSION['userid'] ?>);
     }
   })
 </script>
