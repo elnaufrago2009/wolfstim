@@ -129,26 +129,26 @@
 
 				<!-- Hijo 01 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo1_estado=='true'">
-					{{tree.hijo1_nombre}} ({{tree.hijo1_activo}}) <br>
-					<img src="/assets/img/tree-user2.png" @click="get_tree(tree.hijo1_id)" alt="" class="" width="100" style="cursor: pointer">
+					{{tree.hijo1_nombre}} ({{tree.hijo1_activo}})<br>
+					<img src="/assets/img/tree-user2.png" @click="get_tree(tree.hijo1_id)" width="100" style="cursor: pointer">
 				</div>
 
 				<!-- Hijo 02 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo2_estado=='true'">
 					{{tree.hijo2_nombre}} ({{tree.hijo2_activo}}) <br>
-					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
+					<img src="/assets/img/tree-user2.png" @click="get_tree(tree.hijo2_id)" width="100" style="cursor: pointer">
 				</div>
 
 				<!-- Hijo 03 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo3_estado=='true'">
 					{{tree.hijo3_nombre}} ({{tree.hijo3_activo}}) <br>
-					<img src="/assets/img/tree-user2.png" alt="" class="" width="120">
+					<img src="/assets/img/tree-user2.png" @click="get_tree(tree.hijo3_id)" width="100" style="cursor: pointer">
 				</div>
 
 				<!-- Hijo 04 -->
 				<div class="col-12 col-md-3 text-center" v-show="tree.hijo4_estado=='true'">
 					 {{tree.hijo4_nombre}} ({{tree.hijo4_activo}}) <br>
-					<img src="/assets/img/tree-user2.png" alt="" class="" width="120" v-show="tree.hijo4_estado=='true'">
+					<img src="/assets/img/tree-user2.png" @click="get_tree(tree.hijo4_id)" width="100" style="cursor: pointer">
 				</div>
 
 

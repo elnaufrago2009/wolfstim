@@ -38,9 +38,9 @@
             <?php 
               if ($_SESSION['tipuser']=='2') {
                 echo '<li><a href="/validar/">Validar Pagos</a></li>';
+                echo '<li><a href="/payments/">Pagar</a></li>';
               }
             ?>
-            
           </ul>
         </div>
       <?php } ?>

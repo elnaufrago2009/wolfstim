@@ -48,12 +48,12 @@
 					<form v-on:submit.prevent>
 					  <div class="form-group">
 					    <label for="exampleInputEmail1">Email o dni</label>
-					    <input type="email" v-model="login.doc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+					    <input type="text" v-model="login.doc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
 					    <small id="emailHelp" class="form-text text-muted">No compartiremos sus datos con nadie mas.</small>
 					  </div>
 					  <div class="form-group">
 					    <label for="exampleInputPassword1">Contraseña</label>
-					    <input type="password" class="form-control" v-model='login.password' id="exampleInputPassword1" placeholder="Password">
+					    <input type="password" class="form-control" v-model='login.password' id="exampleInputPassword1" placeholder="Password" required>
 					  </div>
 					  <div class="form-group form-check">
 					    <input type="checkbox" class="form-check-input" id="exampleCheck1">
