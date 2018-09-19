@@ -20,7 +20,8 @@
           para la formación de líderes en todo el Perú.
         </p>
         <div class="d-flex flex-column flex-md-row lead mb-3">
-          <a href="/registro/" class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3"">Registrate..!</a>
+          <a href="/pages/informacion.php" class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3 text-light" style="background-color: #5f2dab;">Información</a>
+          <a href="/registro/" class="btn btn-lg btn-bd-primary mb-3 mb-md-0 mr-md-3">Registrate</a>
           <a href="/login/login.php" class="btn btn-lg btn-outline-secondary">Tu Cuenta</a>
         </div>
       </div>

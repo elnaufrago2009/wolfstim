@@ -3,14 +3,14 @@
 	// BD
 	include '../conn.php';
 
-	// paramtros get
-	$user_pack_id = $_GET['pedido_id'];
-	$user_id = $_GET['user_id'];
-	$cantidad = $_GET['cantidad'];
-	$arbol_patrocinador = $_GET['arbol_patrocinador']; // id patrocinador
+  // paramtros get
+  $user_pack_id = $_GET['pedido_id'];
+  $user_id = $_GET['user_id'];
+  $cantidad = $_GET['cantidad'];
+  $arbol_patrocinador = $_GET['arbol_patrocinador']; // id patrocinador
   $arbol_padre = $_GET['arbol_padre'];
   $pack_id = $_GET['pack_id'];
-  $uno_level = '31';
+  $uno_level = '1';
 
 
 	// niveles

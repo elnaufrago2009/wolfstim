@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2018 a las 00:37:39
+-- Tiempo de generación: 19-09-2018 a las 18:10:35
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -73,8 +73,22 @@ CREATE TABLE `packs` (
 
 INSERT INTO `packs` (`id`, `codigo`, `descripcion`, `costo`, `created`, `updated`, `activo`, `image`) VALUES
 (1, 'PACK01', 'Pack plus Basic', '200.00', '0000-00-00', '0000-00-00', 1, 'canasta-1.jpg'),
-(2, 'PACK02', 'Pack Master intermedio', '250.00', '0000-00-00', '0000-00-00', 1, 'canasta-2.jpg'),
-(3, 'PACK03', 'Pack Premiun ', '250.00', '0000-00-00', '0000-00-00', 1, 'canasta-3.jpg');
+(2, 'PACK02', 'Pack Master intermedio', '200.00', '0000-00-00', '0000-00-00', 1, 'canasta-2.jpg'),
+(3, 'PACK03', 'Pack Premiun ', '200.00', '0000-00-00', '0000-00-00', 1, 'canasta-3.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(6) NOT NULL,
+  `user_id` varchar(5) DEFAULT NULL,
+  `date_payment` date DEFAULT NULL,
+  `date_day` date DEFAULT NULL,
+  `quantity` varchar(8) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,7 +114,7 @@ CREATE TABLE `user_pack` (
 --
 
 INSERT INTO `user_pack` (`id`, `pack_id`, `user_id`, `estado`, `tipo`, `created`, `fecha_envio_pago`, `updated`, `pago_operacion`, `pago_descripcion`) VALUES
-(7, 1, 31, 2, '0', '2018-05-01', '0000-00-00', '2018-05-01', 'dasdad', 'Por favor revise mi pago');
+(1, 1, 1, 2, '0', '2018-09-18', '2018-09-18', '2018-09-18', 'D454878', 'Por favor revise mi pago');
 
 -- --------------------------------------------------------
 
@@ -116,12 +130,6 @@ CREATE TABLE `usuarios` (
   `tipuser` int(2) NOT NULL DEFAULT '0' COMMENT 'tipo de usuario de acceso a la cuenta, ACL. esto es el nivel de usuario 0 nada, 1 usuario normal activado, 9 super administrador',
   `celular` varchar(50) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL COMMENT 'este es opcional y se puede utilizar para hacer login con la cuenta',
-  `provincia` int(3) DEFAULT NULL COMMENT 'id de la tabla provincias',
-  `det_modo_pago` varchar(30) DEFAULT NULL COMMENT 'dni o tarjeta',
-  `det_pago_banco` int(2) DEFAULT NULL,
-  `det_pago_cuenta` varchar(40) DEFAULT NULL,
-  `det_pago_nombre` varchar(100) DEFAULT NULL,
-  `det_pago_dni` varchar(12) DEFAULT NULL,
   `arbol_patrocinador` varchar(12) DEFAULT NULL,
   `arbol_padre` varchar(12) NOT NULL COMMENT 'id padre se activa solo cuando el cliente hace una compra de un paquete por primera vez',
   `arbol_hijo1` varchar(12) NOT NULL DEFAULT '0',
@@ -129,16 +137,19 @@ CREATE TABLE `usuarios` (
   `arbol_hijo3` varchar(12) NOT NULL DEFAULT '0',
   `arbol_hijo4` varchar(12) NOT NULL DEFAULT '0',
   `arbol_nivel` int(2) NOT NULL DEFAULT '0',
-  `activo` int(2) NOT NULL DEFAULT '0' COMMENT 'se activa junto con el arbol_padre pero este es un indicador fijo, por que puede que sea que le demos de baja y eso cambiaria las reglas de usar solo un campo.',
-  `acumulado` varchar(11) NOT NULL DEFAULT '0.00'
+  `activo` int(2) NOT NULL DEFAULT '0' COMMENT '0: no consumio paquete nunca 1: consumio paquete en el mes 2: no consumio paquete en un mes.',
+  `acumulado` varchar(11) NOT NULL DEFAULT '0.00',
+  `banco_nombre` varchar(50) DEFAULT NULL,
+  `numero_cuenta` varchar(100) DEFAULT NULL,
+  `ruc` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `provincia`, `det_modo_pago`, `det_pago_banco`, `det_pago_cuenta`, `det_pago_nombre`, `det_pago_dni`, `arbol_patrocinador`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`, `acumulado`) VALUES
-(31, 'abraham moises', '42516253', 'moiseslinar3s', 2, '952631806', 'elnaufrago2009@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '31', '47', '0', '0', '0', 3, 1, '0.00');
+INSERT INTO `usuarios` (`id`, `nombre`, `dni`, `password`, `tipuser`, `celular`, `correo`, `arbol_patrocinador`, `arbol_padre`, `arbol_hijo1`, `arbol_hijo2`, `arbol_hijo3`, `arbol_hijo4`, `arbol_nivel`, `activo`, `acumulado`, `banco_nombre`, `numero_cuenta`, `ruc`) VALUES
+(1, 'Abraham Moises Linares Oscco', '42516253', 'moiseslinar3s', 2, '952631806', 'lineysoft@gmail.com', '1', '1', '1000', '0', '0', '0', 1, 1, '19.00', 'BCP', '540-36253686-0-08', '42516253');
 
 --
 -- Índices para tablas volcadas
@@ -154,6 +165,12 @@ ALTER TABLE `detalle_packs`
 -- Indices de la tabla `packs`
 --
 ALTER TABLE `packs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `payments`
+--
+ALTER TABLE `payments`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -185,16 +202,22 @@ ALTER TABLE `packs`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `user_pack`
 --
 ALTER TABLE `user_pack`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
