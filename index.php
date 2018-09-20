@@ -5,9 +5,11 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-12 mx-auto col-md-6 order-md-2">
-        <img src="/assets/img/familia.png" class="img-fluid mb-3 mb-md-0" alt="">
+        <div class="embed-responsive embed-responsive-4by3">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/jtNbolfmYBQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
       </div>
-      <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
+      <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5 ">
         <h1 class="mb-3 bd-text-purple-bright">
           Lineysoft <small>.com</small>
         </h1>
