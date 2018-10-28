@@ -1,7 +1,7 @@
 <!-- Header -->
 <?php include 'layouts/header.php'; ?>
 
-<main class="bd-masthead" id="content" role="main">
+<main class="bd-masthead" id="content" role="main"> 
   <div class="container">
     <div class="row align-items-center">
       <div class="col-12 mx-auto col-md-6 order-md-2">
