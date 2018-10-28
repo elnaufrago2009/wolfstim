@@ -58,10 +58,10 @@
 			<p>
 				¿En qué consiste el bono de inicio rápido?
 				Bono único por las personas que incluyas dentro de la compañía que asciende al 2.5% del costo del pack.
-				¿En qué consiste el bono Wolfstim?
+				¿En qué consiste el bono Lineysoft?
 			</p>
 			<p>
-				¿En qué consiste el bono Wolfstim?
+				¿En qué consiste el bono Lineysoft?
 				Bono mensual de acuerdo al comportamiento de tu equipo, la compañía te paga porcentajes del costo del pack hasta tu séptima línea, con cuatro frontales por cada persona.
 			</p>
 			<p>

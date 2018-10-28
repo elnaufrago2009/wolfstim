@@ -20,7 +20,7 @@
 			
 			<h1 class="bd-title">Centros de distribucion</h1>
 			<p class="bd-lead">
-				Tacna - Peru. cono sur.
+				Tacna - Peru. Ciudad Nueva.
 			</p>
 
 		</main>

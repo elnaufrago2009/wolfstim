@@ -20,7 +20,7 @@
 
 			<h1 class="bd-title">Politica Organizacional</h1>
 			<p class="bd-lead">
-				Wolfstim S.A.C. ha sido fundado para mejorar la calidad de vida de las familias. Por ello, todos los miembros de la organización deberán aplicar la mejora continua de manera responsable y con valores, para alcanzar los objetivos a todo nivel, con el soporte de los máximos representantes de la organización. Así garantizamos:
+				Lineysoft S.A.C. ha sido fundado para mejorar la calidad de vida de las familias. Por ello, todos los miembros de la organización deberán aplicar la mejora continua de manera responsable y con valores, para alcanzar los objetivos a todo nivel, con el soporte de los máximos representantes de la organización. Así garantizamos:
 			</p>
 			<h3>Seguridad, salud y medio ambiente</h3>
 			<p>
